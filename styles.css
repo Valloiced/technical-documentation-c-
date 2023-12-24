@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 100ms ease-in-out;
+}
+
+html, body {
+    position: relative;
+    font-family: var(--Inter);
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Colors */
+    --black-10: #12121215;
+    --black-25: #12121240;
+    --black-50: #12121280;
+    --black-75: #121212BF;
+    --black-100: #121212;
+    --dark-blue: #002551;
+    --cyan: #00C49C;
+    --white: #F7F7F7;
+    /* Fonts */
+    --Inter: 'Inter', sans-serif;
+    --Montserrat: 'Montserrat', sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.2em 2.5em;
+    background-color: var(--dark-blue);
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    color: var(--white);
+    font-size: 1.25em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#title > p:nth-child(2) {
+    font-weight: bold;
+    font-family: var(--Montserrat);
+}
+
+#title > p:nth-child(4) {
+    font-weight: 200;
+    font-family: var(--Montserrat);
+}
+
+#author, #author a:visited, #author a:active {
+    color: var(--white);
+    font-style: italic;
+    font-family: var(--Montserrat);
+    text-decoration: none;
+}
+
+#author a:hover {
+    color: var(--cyan);
+}
+
+#container {
+    position: relative;
+    display: flex;
+    gap: 2em;
+    padding: 1em;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+#navbar {
+    position: sticky;
+    width: 25%;
+    top: 0;
+    background-color: var(--white);
+    padding: 1.5em;
+    overflow: scroll;
+    height: 100vh;
+}
+
+#navbar header {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: var(--Montserrat);
+    color: var(--dark-blue);
+    margin-top: 1em;
+}
+
+#navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1.3em;
+    list-style-type: none;
+}
+
+#navbar li {
+    display: inherit;
+    flex-direction: column;
+    gap: 1em;
+    color: var(--black-75);
+}
+
+#navbar li:hover {
+    cursor: pointer;
+    color: var(--black-100);
+}
+
+/* It wouldn't animate, I'm gonna bawl my eyes out */
+.nav-link-wrapper {
+    display: none;
+    transition: display 1s ease-in-out !important;
+}
+
+.nav-link-wrapper.active {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#navbar li a.nav-link {
+    text-decoration: none;
+    color: var(--black-75);
+    margin-left: 2em;
+}
+
+#navbar li a:not(.nav-link) {
+    text-decoration: none;
+    color: var(--black-75);
+}
+
+#navbar li a.nav-link:visited, 
+#navbar li a.nav-link:active ,
+#navbar li a:not(.nav-link):visited,
+#navbar li a:not(.nav-link):active
+{
+    color: var(--black-75);
+}
+
+#navbar li a.nav-link:hover::before {
+    content: "";
+    position: absolute;
+    margin-left: 2.5em;
+    left: 0px;
+    width: 3px;
+    height: 1.2em;
+    background-color: var(--cyan);
+}
+
+#navbar li a.nav-link:hover, 
+#navbar li a:not(.nav-link):hover 
+{
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--black-100);
+}
+
+#navbar li > p:hover {
+    text-decoration: underline;
+}
+
+#navbar li.active > p {
+    color: var(--black-100);
+    font-weight: bold;
+}
+
+#main-doc {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    padding: 1em;
+    width: 80%;
+}
+
+.main-content {
+    display: inherit;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.main-content h2 {
+    color: var(--dark-blue);
+    font-size: 2em;
+    font-family: var(--Montserrat);
+}
+
+.main-section {
+    display: inherit;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.main-section header {
+    color: var(--black-100);
+    font-weight: bold;
+    font-size: 1.35em;
+    font-family: var(--Montserrat);
+}
+
+.main-section h1,
+.main-section h2,
+.main-section h3, 
+.main-section h4,
+.main-section h5
+{
+    font-family: var(--Montserrat);
+    color: var(--black-100);
+}
+
+.main-section p, .main-section li {
+    color: var(--black-75);
+    line-height: 1.6;
+}
+
+.main-section ul, .main-section ol {
+    padding: 1em;
+}
+
+.main-section li {
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.main-section a, .main-section a:visited, .main-section a:active {
+    text-decoration: none;
+    color: var(--dark-blue);
+    border-bottom: 2px solid var(--dark-blue);
+}
+
+.main-section a:hover {
+    opacity: 0.8;
+}
+
+.main-section img {
+    align-self: center;
+    width: 80%;
+    border-radius: 20px;
+}
+
+.main-section code:not(.language-dotnet) {
+    background-color: var(--black-10);
+    padding: 0.2em;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.note {
+    display: inherit;
+    flex-direction: inherit;
+    gap: inherit;
+    padding: 1.25em 1.5em;
+    background: color-mix(in srgb, var(--cyan) 15%, transparent);
+    border-left: 8px solid var(--cyan);
+}
+
+.note a, .note a:visited, .note a:active {
+    border-bottom: 2px solid var(--cyan);
+}
+
+.line-h {
+    background-color: var(--black-75);
+    width: 100%;
+    height: 1px;
+}
+
+.line-v {
+    background-color: var(--white);
+    width: 1px;
+    height: 100%;
+}
+
+@media (max-width: 1215px) {
+    #main-doc {
+        width: 70%;
+    }
+
+    #navbar {
+        width: 25%;
+    }
+}
+
+@media (max-width: 910px) {
+    #main-doc {
+        width: 65%;
+    }
+
+    #navbar {
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    #header {
+        position: fixed;
+        top: 0;
+        padding: 1.2em 1.5em;
+        z-index: 1000;
+    }
+
+    #author {
+        display: none;
+    }
+
+    #container {
+        margin-top: 4.25em;
+    }
+
+    #nav-toggle {
+        display: block;
+        font-size: 1.5rem;
+        padding: 0.2em 0.4em;
+        border-radius: 50%;
+    }
+
+    #nav-toggle:hover {
+        cursor: pointer;
+        background-color: var(--black-50);
+    }
+
+    #nav-toggle.active {
+        background-color: var(--white);
+    }
+
+    #nav-toggle.active > #show {
+        display: none;
+    }
+    
+    #nav-toggle.active > #hide {
+        display: block;
+        color: var(--dark-blue);
+    }
+
+    #navbar {
+        display: none; 
+    }
+
+    #navbar.active {
+        display: block;
+        position: fixed;
+        top: 5em;
+        width: 40%;
+        height: 80vh;
+        z-index: 1000;
+        box-shadow: 2px 2.5px 5px var(--black-50);
+        animation: appear 0.3s forwards;
+    }
+
+    #main-doc {
+        position: absolute;
+        width: 100%;
+    }
+
+    #show {
+        display: block;
+    }
+
+    #hide {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    #header {
+        padding: 1em 1em;
+    }
+
+    #title p:nth-child(4), #title > .line-v {
+        display: none;
+    }
+
+    #container {
+        padding: 0;
+    }
+
+    #navbar.active {
+        width: 80%;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,2843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# Simple Documentation</title>
+    <!-- External CDNs -->
+    <link rel="stylesheet" href="https://prismjs.com/themes/prism-okaidia.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+    <div id="header">
+        <div id="title">
+            <span id="nav-toggle">
+                <i id="show" class="fa fa-solid fa-bars"></i>
+                <i id="hide" class="fa fa-solid fa-xmark"></i>
+            </span>
+            
+            <p>.NET</p>
+            <span class="line-v"></span>
+            <p>C# Brief Documentation</p>
+        </div>
+        <div id="author">
+            Developed by <a href="https://github.com/Valloiced">@alloice</a>
+        </div>
+    </div>
+    <div id="container">
+        <nav id="navbar">
+            <header>Table of Contents</header>
+            <ul id="nav">
+                <li>
+                    <p onclick="toggleNav(this)" class="dropdown">
+                        <i>&#62;</i> Get Started
+                    </p>
+                    
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#Introduction">Introduction</a>
+                        <a class="nav-link" href="#Basics">Basics</a>
+                        <a class="nav-link" href="#Methods">Methods</a>
+                        <a class="nav-link" href="#Comments">Comments</a>
+                        <a class="nav-link" href="#If_Statements">If Statements</a>
+                        <a class="nav-link" href="#While_and_Do_While_Loops" >While and Do While Loops</a>
+                        <a class="nav-link" href="#For_and_Foreach_Loops">For and Foreach Loops</a>
+                        <a class="nav-link" href="#Switch_Statements">Switch Statements</a>
+                        <a class="nav-link" href="#Throw">Throw</a>
+                    </div>
+                </li>
+                <li>
+                    <p onclick="toggleNav(this)">&#62; Types</p>    
+                        
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#Chars">Chars</a>
+                        <a class="nav-link" href="#Classes">Classes</a>
+                        <a class="nav-link" href="#Float_Numbers">Float Numbers</a>
+                        <a class="nav-link" href="#Integral_Numbers">Integral Numbers</a>
+                        <a class="nav-link" href="#Nullability">Nullability</a>
+                        <a class="nav-link" href="#Numbers">Numbers</a>
+                        <a class="nav-link" href="#Strings ">Strings</a>
+                    </div>
+                </li>
+                <li>
+                    <p onclick="toggleNav(this)">&#62; Classes</p>
+                    
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#Attributes">Attributes</a>
+                        <a class="nav-link" href="#Casting">Casting</a>
+                        <a class="nav-link" href="#Constructors">Constructors</a>
+                        <a class="nav-link" href="#Equality">Equality</a>
+                        <a class="nav-link" href="#Fields">Fields</a>
+                        <a class="nav-link" href="#Inheritance">Inheritance</a>
+                        <a class="nav-link" href="#Interfaces">Interfaces</a>
+                        <a class="nav-link" href="#Properties">Properties</a>
+                        <a class="nav-link" href="#Resource_Cleanup">Resource Cleanup</a>
+                    </div>
+                </li>
+                <li>
+                    <p onclick="toggleNav(this)">&#62; Methods</p>
+
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#Exceptions">Exceptions</a>
+                        <a class="nav-link" href="#Expression_Bodied_Members">Expression Bodied Members</a>
+                        <a class="nav-link" href="#Extension_Methods">Extension Methods</a>
+                        <a class="nav-link" href="#Method_Overloading">Method Overloading</a>
+                        <a class="nav-link" href="#Named_Arguments">Named Arguments</a>
+                        <a class="nav-link" href="#Optional_Parameters">Optional Parameters</a>
+                    </div>
+                </li>
+                <li>
+                    <p onclick="toggleNav(this)">&#62; Operators</p>
+
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#Booleans">Booleans</a>
+                        <a class="nav-link" href="#Operator_Overloading">Operator Overloading</a>
+                        <a class="nav-link" href="#Ternary_Operators">Ternary Operators</a>
+                    </div>
+                </li>
+                <li>
+                    <p onclick="toggleNav(this)">&#62; Structures</p>
+
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#Array">Array</a>
+                        <a class="nav-link" href="#Dictionaries_(T,T)">Dictionaries (T,T)</a>
+                        <a class="nav-link" href="#Enums">Enums</a>
+                        <a class="nav-link" href="#Flag_Enums">Flag Enums</a>
+                        <a class="nav-link" href="#HashSets_(T)">HashSets (T)</a>
+                        <a class="nav-link" href="#Lists_(T)">Lists_(T)</a>
+                    </div>
+                </li>
+                <li>
+                    <p onclick="toggleNav(this)">&#62; System Instances</p>
+
+                    <div class="nav-link-wrapper">
+                        <a class="nav-link" href="#System.DateTime">System.DateTime</a>
+                        <a class="nav-link" href="#System.Random">System.Random</a>
+                        <a class="nav-link" href="#System.StringBuilder">System.StringBuilder</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#LINQ">&#62; LINQ</a>
+                </li>
+                <li>
+                    <a href="#References">&#62; References</a>
+                </li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <div class="main-content">
+                <h2>Get Started</h2>
+                <section name="Introduction" id="Introduction" class="main-section">
+                    <header>Introduction</header>
+                    <p>
+                        <i>- Sourced from Microsoft</i>
+                    </p>
+                    <p>
+                        C# is an object-oriented, component-oriented programming language. C# provides language constructs to directly support these concepts, making C# a natural language in which to create and use software components. Since its origin, C# has added features to support new workloads and emerging software design practices. At its core, C# is an object-oriented language. You define types and their behavior. 
+                    </p>
+                    <p>
+                        C# programs run on .NET, a virtual execution system called the common language runtime (CLR) and a set of class libraries. The CLR is the implementation by Microsoft of the common language infrastructure (CLI), an international standard. The CLI is the basis for creating execution and development environments in which languages and libraries work together seamlessly.
+                    </p>
+                    <p>
+                        Several C# features help create robust and durable applications such as:
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/">Garbage collection</a> automatically reclaims memory occupied by unreachable unused objects. 
+                        </li>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references">Nullable types</a> guard against variables that don't refer to allocated objects.
+                        </li>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/">Exception handling</a> provides a structured and extensible approach to error detection and recovery.
+                        </li>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions">Lambda expressions</a> support functional programming techniques.
+                        </li>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/linq/">Language Integrated Query (LINQ)</a> syntax creates a common pattern for working with data from any source.
+                        </li>
+                        <li>
+                            Language support for <a href="https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/">asynchronous operations</a> provides syntax for building distributed systems.
+                        </li>
+                    </ul>
+                    <p>
+                        C# has a <a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/">unified type system</a>. All C# types, including primitive types such as <code>int</code> and <code>double</code>, inherit from a single root object type. All types share a set of common operations. Values of any type can be stored, transported, and operated upon in a consistent manner. Furthermore, C# supports both user-defined reference types and value types. C# allows dynamic allocation of objects and in-line storage of lightweight structures. C# supports generic methods and types, which provide increased type safety and performance. C# provides iterators, which enable implementers of collection classes to define custom behaviors for client code.
+                    </p>
+                    <p>
+                        This introduction aims to provide a foundational understanding of C#, exploring its syntax, core concepts, and essential functionalities to enable you to dive confidently into the realm of C# programming.
+                    </p>
+                    <div class="note">
+                        See this references for more in-depth understanding about this language and its functionality:
+                        <ul>
+                            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/">C# Programming Language</a></li>
+                            <li><a href="https://learn.microsoft.com/en-us/dotnet/core/introduction">.NET Framework</a></li>
+                            <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/">C# Programming Guide</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <section name="Basics" id="Basics" class="main-section">
+                    <header>Basics</header>
+                    <p>
+                        C# is a statically-typed language, which means that everything has a type at compile-time. Assigning a value to a name is referred to as defining a variable. A variable can be defined either by explicitly specifying its type, or by letting the C# compiler infer its type based on the assigned value (known as type inference). Therefore, the following two variable definitions are equivalent:
+                    </p>  
+                    <pre>
+                        <code class="language-dotnet">
+    int explicitVar = 10; // Explicitly typed
+    var implicitVar = 10; // Implicitly typed
+                        </code>
+                    </pre>
+                    <p>
+                        Updating a variable's value is done through the = operator. Once defined, a variable's type can never change.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    var count = 1; // Assign initial value
+    count = 2;     // Update to new value
+    
+    // Compiler error when assigning different type
+    // count = false;
+                        </code>
+                    </pre>
+                    <p>
+                        C# is an object-oriented language and requires all functions to be defined in a class. The class keyword is used to define a class. Objects (or instances) are created by using the new keyword.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Calculator
+    {
+        // ...
+    }
+    
+    var calculator = new Calculator();
+                        </code>
+                    </pre>
+                </section>
+                <section name="Methods" id="Methods" class="main-section">
+                    <header>Methods</header>
+                    <p>
+                        A function within a class is referred to as a <i></i>method</i>. Each method can have zero or more parameters. All parameters must be explicitly typed, there is no type inference for parameters. Similarly, the return type must also be made explicit. Values are returned from methods using the <code>return</code> keyword. To allow a method to be called by code in other files, the <code>public</code> access modifier must be added.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Calculator
+    {
+        public int Add(int x, int y)
+        {
+            return x + y;
+        }
+    }
+                        </code>
+                    </pre>
+
+                    <p>
+                        Methods are invoked using dot (<code>.</code>) syntax on an instance, specifying the method name to call and passing arguments for each of the method's parameters. Arguments can optionally specify the corresponding parameter's name.
+
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    var calculator = new Calculator();
+    var sum_v1 = calculator.Add(1, 2);
+    var sum_v2 = calculator.Add(x: 1, y: 2);     
+                        </code>
+                    </pre>
+                    <p>
+                        Scope in C# is defined between the <code>&#123;</code> and <code>&#125;</code> characters.
+                    </p>
+                </section>
+                <section name="Comments" id="Comments" class="main-section">
+                    <header>Comments</header>
+                    <p>
+                        C# supports two types of comments. Single line comments are preceded by <code>//</code> and multi-line comments are inserted between <code>/*</code> and <code>*/</code>.
+                    </p>
+                </section>
+                <section name="If_Statements" id="If_Statements" class="main-section">
+                    <header>If Statements</header>
+                    <p>
+                        An <code>if</code> statement can be used to conditionally execute code. The condition of an <code>if</code> statement must be of type <code>bool</code>. C# has no concept of <i>truthy</i> values.
+
+                        The most common way to do this in C# is by using an if/else statement:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int x = 6;
+
+    if (x == 5)
+    {
+        // Execute logic if x equals 5
+    }
+    else if (x > 7)
+    {
+        // Execute logic if x greater than 7
+    }
+    else
+    {
+        // Execute logic in all other cases
+    }
+                        </code>
+                    </pre>
+                </section>
+
+                <section name="While_and_Do_While_Loops" id="While_and_Do_While_Loops" class="main-section">
+                    <header>While and Do While Loops</header>
+                    <p>
+                        To repeatedly execute logic, one can use loops. One of the most common loop types in C# is the <code>while</code> loop, which keeps on looping until a boolean condition evaluates to <code>false</code>.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int x = 23;
+
+    while (x > 10)
+    {
+        // Execute logic if x > 10
+        x = x - 1;
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        To repeatedly execute logic, one can use loops. If the code in a loop should always be executed at least once, a <code>do/while</code> loop can be used:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int x = 0;
+
+    do
+    {
+        x = GetX();
+        // do something with x
+    }
+    while (x != 0);
+                        </code>
+                    </pre>
+                    <p>
+                        This is used less frequently than a <code>while</code> loop but in some cases results in more natural looking code.
+                    </p>
+                </section>
+                <section name="For_and_Foreach_Loops" id="For_and_Foreach_Loops"class="main-section">
+                    <header>For and Foreach Loops</header>
+                    <p>A <code>for</code> loop allows one to repeatedly execute code in a loop until a condition is met.</p>
+                    <pre>
+                        <code class="language-dotnet">
+    for (int i = 0; i < 5; i++)
+    {
+        System.Console.Write(i);
+    }
+
+    // => 01234
+
+                        </code>
+                    </pre>
+                    <p>A <code>for</code> loop consists of four parts:</p>
+                    <ol>
+                        <li>
+                            The initializer: executed once before entering the loop. Usually used to define variables used within the loop.
+                        </li>
+                        <li>
+                            The condition: executed before each loop iteration. The loop continues to execute while this evaluates to <code>true</code>.
+                        </li>
+                        <li>  
+                            The iterator: execute after each loop iteration. Usually used to modify (often: increment/decrement) the loop variable(s).
+                        </li>
+                        <li>
+                            The body: the code that gets executed each loop iteration.
+                        </li>
+                    </ol>
+                    <h3>for vs foreach loops</h3>
+                    <p>In general foreach-loops are preferrable over for loops <code>for</code> the following reasons:</p>
+                    <ul>
+                        <li>
+                            A <code>foreach</code> loop is guaranteed to iterate over all values. With a <code>for</code> loop, it is easy to miss elements, for example due to an off-by-o
+                        </li>
+                        <li>
+                            A <code>foreach</code> loop is more declarative, your code is communicating what you want it to do, instead of a <code>for</code> loop that communicates how you want to do it.
+                        </li>
+                        <li>
+                            A <code>foreach</code> loop is foolproof, whereas with <code>for</code> loops it is easy to have an off-by-one error.
+                        </li>
+                        <li>
+                            A <code>foreach</code> loop works on all collection types, including those that don't support using an indexer to access elements.
+                        </li>
+                    </ul>
+                    <p>
+                        To guarantee that a foreach loop will iterate over all values, the compiler will not allow updating of a collection within a foreach loop:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
+
+    foreach (char vowel in vowels)
+    {
+        // This would result in a compiler error
+        // vowel = 'Y';
+    }
+                        </code>
+                    </pre>
+                    <p>A for loop does have some advantages over a foreach loop:</p>
+                    <ul>
+                        <li>
+                            You can start or stop at the index you want.
+                        </li>
+                        <li>
+                            You can use any (boolean) termination condition you want.
+                        </li>
+                        <li>
+                            You can skip elements by customizing the incrementing of the loop variable.
+                        </li>
+                        <li>
+                            You can process collections from back to front by counting down.
+                        </li>
+                        <li>
+                            You can use for loops in scenarios that don't involve collections.
+                        </li>
+                    </ul>
+                </section>
+                <section name="Switch_Statements" id="Switch_Statements"class="main-section">
+                    <header>Switch Statements</header>
+                    <p>
+                        Switch statements have a venerable history in programming languages. They were introduced in C where they were prized for their speed. That speed came at the cost of functionality which was very constrained. In C# the role of the switch statement has been expanded beyond integers. Switch statements can encompass any arbitrary type, value or reference.
+                    </p>
+                    <p>
+                        If you are coming from a functional language then working with switch statements (and switch expressions discussed elsewhere) is the nearest you will get in C# to using discriminated unions and pattern matching. However, they have nowhere near the discriminated union's power to enforce type safety.
+                    </p>
+                    <p>
+                        Simple switch statements resemble their C ancestors combining switch, case, break and default.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int direction = GetDirection();
+    switch (direction)
+    {
+        case 1:
+            GoLeft();
+            break;
+        case 2:
+            GoRight();
+            break;
+        default:
+            MarkTime();
+            break;
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        The above pattern can be used with any simple (primitives + strings) type.
+                    </p>
+                    <p>
+                        When reference types are added into the mix then extra syntax is involved, firstly to down cast the type and then to add guards (when) although guards can be used with simple value cases. This is illustrated below:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    switch(animal)
+    {
+        case Dog canine:
+        case Coyote canine:
+            canine.Bark();
+            break;
+        case Cat cat when cat.HasOnly8Lives():
+            cat.IsCareful();
+            cat.Meow();
+            break;
+        case Cat cat:
+            cat.Meow();
+            break;
+    }
+                        </code>
+                    </pre>
+                    <ul>
+                        <li>
+                            The <code>default</code> clause is optional but typically desirable.
+                        </li>
+                        <li>
+                            The <code>break</code> statement is mandatory for any non-empty <code>case</code> clause.
+                        </li>
+                        <li>
+                            Obviously the type of all the arguments to the <code>case</code> labels must be derived from the type of the <code>switch</code> argument. A <code>switch</code> argument of type <code>Object</code> obviously allows the widest range.
+                        </li>
+                        <li>
+                            The guard expression can include anything in scope not just members of the <code>case</code> argument.
+                        </li>
+                        <li>
+                            Multiple <code>case</code> with different <code>case</code> arguments can refer to the same code block.
+                        </li>
+                    </ul>
+                </section>
+                <section name="Throw" id="Throw"class="main-section">
+                    <header>Throw</header>
+                    <p>
+                        <code>throw</code> expressions are an alternative to <code>throw</code> statements and in particular can add to the power of ternary and other compound expressions.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string trimmed = str == null ? throw new ArgumentException() : str.Trim();
+                        </code>
+                    </pre>
+                    <p>If <code>str</code> is <code>null</code> in the above code an exception is thrown.</p>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+            
+            <div class="main-content">
+                <h2>Types</h2>
+                <section name="Chars" id="Chars"class="main-section">
+                    <header>Chars</header>
+                    <p>
+                        <code>chars</code> are generally easy to use. They can be extracted from strings, added back (by means of a string builder), defined and initialised using literals with single quotes, as in <code>char ch = 'A';</code> , assigned and compared.
+                    <p>
+                        General information on <code>chars</code> can be found here: 
+                    </p>
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char" target="_blank">Chars documentation</a>: reference documentation for <code>chars</code>.
+                        </li>
+                        <li>
+                            <a href="https://csharp.net-tutorials.com/data-types/the-char-type/" target="_blank">Chars tutorial</a>: basic tutorial on how to work with <code>chars</code>
+                        </li>
+                    </ul>
+                    <p>
+                        However, <code>chars</code> have a number of rough edges as detailed below. These rough edges mostly relate to the opposition between the full unicode standard on the one side and historic representations of text as well as performance and memory usage on the other.
+                    </p>
+                    <h3>Unicode Issues</h3>
+                    <p>
+                        When dealing with strings, if <code>System.String</code> library methods are available you should seek these out and use them rather than breaking the string down into characters. Some textual "characters" consist of more than one <code>char</code> because the unicode standard has more than 65536 code points. For instance the emojis that show up in some of the tests have 2 <code>chars</code> as they comprise surrogate characters. Additionally, there are combining sequences for instance where in some cases an accented character may consist of one <code>char</code> for the plain character and another <code>char</code> for the accent.
+                    </p>
+                    <p>
+                        If you have to deal with individual characters you should try to use library methods such as <code>System.Char.IsControl</code>, <code>System.Char.IsDigit</code> rather than making naive comparisons such as checking that a character is between '0' and '9'. For instance, note that '٢' is the arabic digit 2. <code>IsDigit</code> will return true for the arabic version so you need to be clear say when validating what range of inputs is acceptable. Even the <code>System.Char</code> library methods may not behave as you would expect when you are dealing with more obscure languages.
+                    </p>
+                    <p>
+                        One way safely to break a string into display "characters" is to use <code>StringInfo</code> and methods such as <code>GetNexttextElement</code>. This might be necessary if you are dealing with globalization/localization. Another avenue where the scalar values of unicode characters is important (say you are rolling your own encoding system) is to use runes. However, if you know the range of characters you deal with does not include surrogates or combining character sequences (e.g. Latin ASCII) and your input is well validated then you can avoid this. Again, the best position to be in is where you can use String's library methods.
+                    </p>
+                    <p>
+                        If you do find yourself in the unenviable position of dealing with the minutiae of unicode then this is a good starting point.
+                    </p>
+                    <h3>Globalization</h3>
+                    <p>
+                        If you are working in an environment where you are dealing with multiple cultures or the culture is important in some parts of the code but not others then be aware of the overloads of ToUpper and ToLower which take a culture and ToUpperInvariant and ToLowerInvariant which will provide a consistent result irrespective of the current culture.
+                    </p>
+                    <h3>Representation, Characters and Integers</h3>
+                    <p>
+                        Like other simple types (<code>ints</code>, <code>bools</code>, etc.) the <code>char</code> has a companion or alias type, in this case, <code>System.Char</code>. This is in fact a <code>struct</code> with a 16 bit field. <code>char</code> in fact has some instance methods such as <code>Equals</code>, <code>ToString</code> and <code>CompareTo</code>.
+                    </p>
+                    <p>
+                        <code>char</code> has the same width as a <code>ushort</code> but they are generally not used inter-changeably as they are in some languages. <code>ushort</code> has to be explicitly cast to a <code>char</code>. For what it's worth <code>chars</code> can be subject to arithmetic operations. The result of these operations is an integer.
+                    </p>
+                    <p>
+                        Obviously there is no equivalence between a <code>byte</code> at 8 bits and the 16 bit <code>char</code>.
+                    </p>
+                </section>
+                <section name="Classes" id="Classes"class="main-section">
+                    <header>Classes</header>
+                    <p>
+                        The primary object-oriented construct in C# is the class, which is a combination of data (fields) and behavior (methods). The fields and methods of a class are known as its <i>members</i>.
+                    </p>
+                    <p>
+                        Access to members can be restricted through access modifiers, the two most common ones being:
+                    </p>
+                    <ul>
+                        <li><code>public</code>: the member can be accessed by any code (no restrictions).</li>
+                        <li><code>private</code>: the member can only be accessed by code in the same class.</li>
+                    </ul>
+                    <p>
+                        It is customary to specify an access modifier for all members. If no access modifier is specified, it will default to <code>private</code>.
+                    </p>
+                    <p>
+                        The above-mentioned grouping of related data and behavior plus restricting access to members is known as <a href="https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#encapsulation">encapsulation</a>, which is one of the core object-oriented concepts.
+                    </p>
+                    <p>
+                        The combination of field values of an object at any one time are known as the object's state.
+                    </p>
+                    <p>
+                        You can think of a class as a template for creating instances of that class. To create an instance of a class (also known as an <i>object</i>), the <code>new</code> keyword is used:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Car
+    {
+    }
+
+    // Create two car instances
+    var myCar = new Car();
+    var yourCar = new Car();
+                        </code>
+                    </pre>
+                    <p>
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields">Fields</a> have a type and can be defined anywhere in a class. Public fields are defined in PascalCase and private fields are defined in camelCase and prefixed with an underscore <code>_</code>:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Car
+    {
+        // Accessible by anyone
+        public int Weight;
+    
+        // Only accessible by code in this class
+        private string _color;
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        One can optionally assign an initial value to a field. If a field does not specify an initial value, it will be set to its type's default value. An instance's field values can be accessed and updated using dot-notation.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Car
+    {
+        // Will be set to specified value
+        public int Weight = 2500;
+    
+        // Will be set to default value (0)
+        public int Year;
+    }
+    
+    var newCar = new Car();
+    newCar.Weight; // => 2500
+    newCar.Year;   // => 0
+    
+    // Update value of the field
+    newCar.Year = 2018;
+                        </code>
+                    </pre>
+                    <p>
+                        Private fields are usually updated as a side-effect of calling a method. Such methods usually don't return any value, in which case the return type should be <code>void</code>:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class CarImporter
+    {
+        private int _carsImported;
+    
+        public void ImportCars(int numberOfCars)
+        {
+            // Update private field
+            _carsImported = _carsImported + numberOfCars;
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Note that is not customary to use public fields in C# classes. Either private fields are used or other types of members that will be discussed in subsequent exercises.
+                    </p>
+                    <p>
+                        Within a class, the <code>this</code> keyword will refer to the current class. This is especially useful if a parameter has the same name as a field:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class CarImporter
+    {
+        private int carsImported;
+    
+        public void SetImportedCars(int carsImported)
+        {
+            // Update private field from public method
+            this.carsImported = carsImported;
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        The class and method structure provides a natural way to limit visibility of program elements such as fields and methods and avoid the well-known problem of global state. Public fields, methods and other members have to be qualified with the object name, <code>object.field</code> or <code>object.method()</code>, (class name in the case of statics) to be seen by code outside the class. Variables and parameters declared within a method can be seen only within that method.
+                    </p>
+                    <p>
+                        One thing to be wary of with this approach is that if a field name and the name of a variable or parameter in a method are the same then the field name will be ignored by code within the method which may not be what you desire. In general, you should avoid this where possible although it is a common pattern in constructors. If it is appropriate for the field and variable name to be the same then qualify the field name with the <code>this</code> keyword within the method.
+                    </p>
+                    <p>
+                        These <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers">access modifiers</a> can be used to further limit visibility.
+                    </p>
+                </section>
+                <section name="Float_Numbers" id="Float_Numbers"class="main-section">
+                    <header>Float Numbers</header>
+                    <p>
+                        There are three floating-point types in C#: <code>double</code>, <code>float</code> and <code>decimal</code>. The most commonly used type is <code>double</code>, whereas <code>decimal</code> is normally used when working with monetary data. A <code>double</code> is written as <code>2.45</code> or <code>2.45d</code>, a <code>float</code> as <code>2.45f</code> and a <code>decimal</code> as <code>2.45m</code>.
+                    </p>
+                    <p>
+                        Each floating-point type has its own <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types#characteristics-of-the-floating-point-types">precision, approximate range and size</a>.
+                    </p>
+                    <p>
+                        Some conversions between floating point types are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions">automatic (implicit)</a>, but others are <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#explicit-numeric-conversions">manual (explicit)</a>.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    decimal account = 125m * (decimal)1.2f;                       
+                        </code>
+                    </pre>
+                    <p>
+                        Always be careful when checking the values of floating-point types for equality, as values that can appear to represent the same value could actually be different. See <a href="https://docs.microsoft.com/en-us/dotnet/api/system.double.equals#precision-in-comparisons">this article</a> for more information.
+                    </p>
+                    <p>
+                        You can find a short introduction to floating-point numbers at <a href="https://0.30000000000000004.com/">0.30000000000000004.com</a>. The <a href="https://evanw.github.io/float-toy/">Float Toy page</a> has a nice, graphical explanation how a floating-point numbers' bits are converted to an actual floating-point value.
+                    </p>
+                </section>
+                <section name="Integral_Numbers" id="Integral_Numbers"class="main-section">
+                    <header>Integral Numbers</header>
+                    <p>
+                        C#, like many statically typed languages, provides a number of types that represent integers, each with its own range of values. At the low end, the <code>sbyte </code>type has a minimum value of -128 and a maximum value of 127. Like all the integer types these values are available as <code>&#60;type&#62;.MinValue</code> and <code>&#60;type&#62;.MaxValue</code>. At the high end, the <code>long</code> type has a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807. In between lie the <code>short</code> and <code>int</code> types.
+                    </p>
+                    <p>
+                        Each of the above types is paired with an unsigned equivalent: <code>sbyte</code>/<code>byte</code>, <code>short</code>/<code>ushort</code>, <code>int</code>/<code>uint</code> and <code>long</code>/<code>ulong</code>. In all cases the range of the values is from 0 to the negative signed maximum times 2 plus 1.
+                    </p>
+                    <p>
+                        Values of unsigned integral types are represented with a simple base 2 representation. Values of signed types use 2s complement signed number representation.
+                    </p>
+                    <p>
+                        The multiplicity of integer types reflects machine architectures, in the size of registers, the size of CPU instruction arguments and the treatment of sign within the CPU. A value of type <code>long</code> uses 64 bits whereas a value of type <code>sbyte</code> uses 8 bits. In some cases there will be implications on CPU performance, memory usage and even disk usage (where selection of a smaller integer type will generally be beneficial). Selection of integer type can also be a rough and ready wsy of communicating information to other developers about the expected range of values. The int type is widely used as the default type where nothing special has been identified about the particular usage. The <code>long</code> or <code>ulong</code> is widely used as a simple identifier. The size of the type in bytes determines the range of values.
+                    </p>
+                    <p>
+                        The types discussed so far are primitive types. Each is paired with a <code>struct</code> alias which implements fields (such as <code>MinValue</code>) and methods (such as <code>ToString()</code>) which are associated with the type.
+                    </p>
+                    <p>Casting is linked <a href="#Casting">here</a></p>
+                    <img src="img/integral-numbers-table.png"/>
+                    <h3>Overflows</h3>
+                    <p>The exercise (from exercism) shows the behavior of various numeric types when they overflow, i.e. when their capacity is insufficient to contain the value resulting from a computation such as an arithmetic operation or cast.</p>
+                    <ul>
+                        <li>
+                            unsigned integers (<code>byte</code>, <code>ushort</code>, <code>uint</code>, <code>ulong</code>) will wrap around to zero (the type's maximum value + 1 acts as a modulus) unless broadly speaking they appear within a <code>checked</code> block in which case an instance of <code>OverflowException</code> is thrown. <code>int</code> and <code>long</code> will behave similarly except that they wrap around to <code>int.MinValue</code> and <code>long.minValue</code> respectively.
+                            <pre>
+                                <code class="language-dotnet">
+    int one = 1;
+    checked
+    {
+        int expr = int.MaxValue + one;  // overflow exception is thrown
+    }
+    
+    // or
+    
+    int expr2 = checked(int.MaxValue + one);  // overflow exception is thrown           
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            If a literal expression would cause the variable to which it is assigned to overflow then a compile-time error occurs.
+                        </li>
+                        <li>
+                            the <code>checked</code> state applies only to expressions directly in the block. Overflow states in called functions are not caught.
+                        </li>
+                        <li>
+                            <code>float</code> and <code>double</code> types will adopt a state of infinity that can be tested wtih <code>float.IsInfinity()</code> etc.
+                            <pre>
+                                <code class="language-dotnet">
+    double d = double.MaxValue;
+    d *= 2d;
+    Double.IsFinite(d)
+    // => false
+                                </code>
+                            </pre>
+                        </li>
+                        <li>
+                            Numbers of type <code>decimal</code> will cause an instance of <code>OverflowException</code> to be thrown.
+                        </li>
+                        <li>
+                            There is a corresponding <code>unchecked</code> keyword for circumstances where you want to reverse the effect of <code>unchecked</code> inside a <code>checked</code> block or when the compiler setting has been used.
+                        </li>
+                    </ul>
+                    <p>
+                        Overflows that occur without an exception being thrown can be problematic because it's generally true that the earlier an error condition can be reported the better.
+                    </p>
+                    <p>
+                        Problems with overflows for <code>int</code> and <code>float</code> can be mitigated by assigning the result to a variable of type <code>long</code>, <code>decimal</code> or <code>double</code>.
+                    </p>
+                    <p>
+                        If large integers are essential to your code then using the <code>BigInteger</code> type is an option.
+                    </p>
+                    <p>
+                        Naturally there are occasions on which it is legitimate to allow an integer to wrap around particularly in the case of unsigned values. A classic case is that of hash codes that use the width of the integer as a kind of modulo.
+                    </p>
+                    <p>
+                        You will usually find in code bases that there is often no check where an <code>uint</code> or a <code>ulong</code> is used as an identifier because it is considered more trouble than it's worth. This also applies where it is evident from the domain that no very large values will be involved. But, look at <a href="https://www.youtube.com/watch?v=vA0Rl6Ne5C8">this</a> for a cautionary tale.
+                    </p>
+                </section>
+                <section name="Nullability" id="Nullability"class="main-section">
+                    <header>Nullability</header>
+                    <p>
+                        In C#, the <code>null</code> literal is used to denote the absence of a value. A <i>nullable</i> type is a type that allows for <code>null</code> values.
+                    </p>
+                    <p>
+                        Prior to C# 8.0, reference types were always nullable and value types were not. A value type can be made nullable though by appending it with a question mark (?).
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string nullableReferenceType = "hello";
+    nullableReferenceType = null; // Valid as type is nullable
+    
+    int nonNullableValueType = 5;
+    nonNullableValueType = null; // Compile error as type is not nullable
+    
+    int? nullableValueType = 5; // Define nullable value type
+    nullableValueType = null;   // Valid as type is nullable
+                        </code>
+                    </pre>
+                    <p>
+                        Accessing a member of a variable which value is <code>null</code> will compile fine, but result in a <code>NullReferenceException</code> being thrown at runtime:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string sentence = "What a nice day!";
+
+    // Throws NullReferenceException at runtime
+    sentence.Length;
+                        </code>
+                    </pre>
+                    <p>
+                        To counter this common type of mistake, C# 8 allows one to opt-into a feature that makes reference types non-nullable by default:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string nonNullableReferenceType = "book";
+    nonNullableReferenceType = null; // Compile warning (no error!)
+    
+    string? nullableReferenceType = "movie";
+    nullableReferenceType = null; // Valid as type is nullable
+                        </code>
+                    </pre>
+                    <p>
+                        To safely work with nullable values, one should check if they are <code>null</code> before working with them:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string NormalizedName(string? name)
+    {
+        if (name == null)
+        {
+            return "UNKNOWN";
+        }
+        else
+        {
+            // Value is not null at this point, so no compile warning
+            // and no runtime NullReferenceException being thrown
+            return name.ToUpper();
+        }
+    }
+    
+    NormalizedName(null); // => "UNKNOWN"
+    NormalizedName("Elisabeth"); // => "ELISABETH"
+                        </code>
+                    </pre>
+                    <p>
+                        The <code>??</code> operator allows one to return a default value when the value is <code>null</code>:  
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string? name1 = "John";
+    name1 ?? "Paul"; // => "John"
+    
+    string? name2 = null;
+    name2 ?? "George"; // => "George"
+                        </code>
+                    </pre>
+                    <p>
+                        The <code>?.</code> operator allows one to call members safely on a possibly <code>null</code> value:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string? fruit = "apple";
+    fruit?.Length; // => 5
+    
+    string? vegetable = null;
+    vegetable?.Length; // => null
+                        </code>
+                    </pre>
+                    <p>
+                        If the compiler thinks a value could be <code>null</code> but you are certain it won't be, the <code>!.</code> operator can be used to suppress the warning. Only use this operator as a last resort though.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">      
+    void PrintName(string? name)
+    {
+        // Assume that the IsValid() method only return true
+        // when its argument is not null
+        if (IsValid(name))
+        {
+            // No compile warning
+            Console.WriteLine(name!.Length);
+        }
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section name="Numbers" id="Numbers"class="main-section">
+                    <header>Numbers</header>
+                    <p>
+                        One of the key aspects of working with numbers in C# is the distinction between integers (numbers with no digits after the decimal separator) and floating-point numbers (numbers with zero or more digits after the decimal separator).
+                    </p>
+                    <p>
+                        The two most commonly used numeric types in C# are <code>int</code> (a 32-bit integer) and <code>double</code> (a 64-bit floating-point number).
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int i = 123;
+    double d = 54.29;
+                        </code>
+                    </pre>
+                    <p>
+                        Both integers and floating-point numbers can use the <code>_</code>character as a digit separator, which can help when defining large numbers:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int largeInt = 1_000_000;
+    // => 1000000
+    
+    double largeDouble = 9_876_543.21;
+    // => 9876543.21
+                        </code>
+                    </pre>
+                    <p>
+                        Arithmetic is done using the standard arithmetic operators (+, -, *, etc.). Numbers can be compared using the standard comparison operators (&#60;, &#62;=, etc.) and the equality- operator (==) and inequality operator (!=).
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    5 * 6;
+    // => 30
+    
+    1.2 > 0.8
+    // => true
+    
+    2 != 4
+    // => true
+                        </code>
+                    </pre>
+                    <p>
+                        When converting between numeric types, there are two types of numeric conversions:
+                    </p>
+                    <ol>
+                        <li>
+                            Implicit conversions: no data will be lost and no additional syntax is required.
+                        </li>
+                        <li>
+                            Explicit conversions: data could be lost and additional syntax in the form of a cast is required.
+                        </li>
+                    </ol>
+                    <p>
+                        As an <code>int</code> has less precision than a double, converting from an <code>int</code> to a <code>double</code> is safe and is thus an implicit conversion. However, converting from a <code>double</code> to an <code>int</code> could mean losing data, so that requires an explicit conversion.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int i = 9;
+    double d = 2.66;
+    
+    // Safe conversion, thus implicit conversion
+    double fromInt = i;
+    
+    // Potentially unsafe conversion, thus explicit conversion
+    int fromDouble = (int)d;
+                        </code>
+                    </pre>
+                    <p>
+                        There are two different types of numbers in C#:
+                    </p>
+                    <ul>
+                        <li>
+                            Integers: numbers with no digits behind the decimal separator (whole numbers). Examples are <code>-6, 0, 1, 25, 976 and 500000</code>.
+                        </li>
+                        <li>
+                            Floating-point numbers: numbers with zero or more digits behind the decimal separator. Examples are <code>-2.4, 0.1, 3.14, 16.984025 and 1024.0</code>.
+                        </li>
+                    </ul>
+                    <p>
+                        The two most common numeric types in C# are <code>int</code> and <code>double</code>. An <code>int</code> is a 32-bit integer and a <code>double</code> is a 64-bit floating-point number.
+                    </p>
+                    <p>
+                        Arithmetic is done using the standard arithmetic operators. Numbers can be compared using the standard numeric comparison operators and the equality (<code>==</code>) and inequality (<code>!=</code>) operators.
+                    </p>
+                    <p>
+                        As an <code>int</code> has less precision than a <code>double</code>, converting from an <code>int</code> to a <code>double</code> is safe and is thus an implicit conversion. However, converting from a <code>double</code> to an <code>int</code> could mean losing data, so that requires an explicit conversion.
+                    </p>
+                </section>
+                <section name="Strings" id="Strings"class="main-section">
+                    <header>Strings</header>
+                    <p>
+                        The key thing to remember about C# strings is that they are immutable objects representing text as a sequence of Unicode characters (letters, digits, punctuation, etc.). Double quotes are used to define a <code>string</code> instance:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string fruit = "Apple";      
+                        </code>
+                    </pre>
+                    <p>
+                        Manipulating a string can be done by calling one of its methods or properties. As string values can never change after having been defined, all string manipulation methods will return a new string.
+                    </p>
+                    <p>
+                        A string is delimited by double quote (<code>"</code>) characters. Some special characters need escaping using the backslash (<code>\</code>) character. Strings can also be prefixed with the at (<code>@</code>) symbol, which makes it a <a href="https://csharp.net-tutorials.com/data-types/strings/#aelm5298">verbatim string</a> that will ignore any escaped characters.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string escaped = "c:\\test.txt";
+    string verbatim = @"c:\test.txt";
+    escaped == verbatim;
+    // => true
+                        </code>
+                    </pre>
+                    <p>
+                        If you only need a part of a string, you can use the <code>Substring()</code> method to extract just that part:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string sentence = "Frank chases the bus.";
+    string name = sentence.Substring(0, 5);
+    // => "Frank" 
+                        </code>
+                    </pre>
+                    <p>
+                        The <code>IndexOf()</code> method can be used to find the index of the first occurence of a <code>string</code> within a <code>string</code>, returning <code>-1</code> if the specified value could not be found:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    "continuous-integration".IndexOf("integration")
+    // => 11
+    
+    "continuous-integration".IndexOf("deployment")
+    // => -1
+                        </code>
+                    </pre>
+                    <p>
+                        Finally, there are many ways to concatenate a string. The simplest one is by using the <code>+</code> operator
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    string name = "Jane";
+    "Hello " + name + "!";
+    // => "Hello Jane!"
+                        </code>
+                    </pre>
+                    <p>
+                        For any string formatting more complex than simple concatenation, <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation">string interpolation</a> is preferred. To enable interpolation in a string, prefix it with the dollar (<code>$</code>) symbol.    
+                    </p>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>Classes</h2>
+                <section name="Attributes" id="Attributes"class="main-section">
+                    <header>Attributes</header>
+                    <p>
+                        A C# <code>Attribute</code> provides a way to decorate a declaration to associate metadata to: a class, a method, an enum, a field, a property or any other supported declarations.
+                    </p>
+                    <p>
+                        You can apply an attribute to a declaration by adding it between brackets <code>[]</code> before the declaration, the following example uses both a <code>ClassAttribute</code> and a <code>FieldAttribute</code>:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    [Class]
+    public class MyClass
+    {
+        [Field] public int myField;
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        The declarative metadata only associates additional structured information to the code and does not modify its behavior, but that metadata is used by other part of the code to change how its target would behave or add, change or remove, restrict some its functionalities.
+                    </p>
+                    <p>
+                        Multiple predefined attributes exist like: <code>Flags</code>, <code>Obsolete</code>, <code>Conditional</code>. Note that the full name of the <code>Flags</code> attribute is <code>FlagsAttribute</code>, but "Attribute" suffix can be omitted when using in the attribute.
+                    </p>
+                    <p>
+                        The following four predefined attributes are used regularly:
+                    </p>
+                    <ul>
+                        <li>
+                            <code>[Flags]</code>: Predefined in the System namespace. Indicates the enum supports both bitwise operations and the method <code>Enum.HasFlag()</code>, additionally <code>ToString</code> would display all the flags: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute">see example</a>.
+                        </li>
+                        <li>
+                           <code>[Obsolete]</code>: Predefined in the System namespace. Allows to add a message about why the code is obsolete, it can be used to display compiler warnings or errors.
+                        </li>
+                        <li>
+                            <code>[Conditional]</code>: Predefined in the System.Diagnostics namespace. Allows to remove some method calls at compile time for debugging (diagnostics) purposes.
+                        </li>
+                        <li>
+                            <code>[CallerMemberName]</code>: Predefined in the System.Runtime.CompilerServices namespace. Allows a method to obtain information about its caller.
+                        </li>
+                    </ul>
+                    <div class="note">
+                        <p>
+                            See Flag Enums <a href="#Flag_Enums">here</a>
+                        </p>
+                    </div>
+                </section>
+                <section name="Casting" id="Casting"class="main-section">
+                    <header>Casting</header>
+                    <p>
+                        A variable (or expression) of one type can easily be converted to another. For instance, in an assignment operation, if the type of the value being assigned (rhs) ensures that the value will fit within the range of the type being assigned to (lhs) then there is a simple assignment:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    ulong ul;
+    uint ui = uint.MaxValue;
+    ul = ui;    // no problem
+                        </code>
+                    </pre>
+                    <p>
+                        On the other hand if the range of type being assigned from is not a subset of the assignee's range of values then a cast, () operation is required even if the particular value is within the assignee's range:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    uint ui;
+    short s = 42;
+    ui = (uint)s;
+                        </code>
+                    </pre>
+                    <p>
+                        In the above example, if the value lay instead outside the range of the assignee then an overflow would occur. <a href="https://exercism.org/tracks/csharp/concepts/overflow">See overflow</a>.
+                    </p>
+                    <p>
+                        The requirement for casting is determined by the two types involved rather than a particular value.
+                    </p>
+                    <p>
+                        The following paragraphs discuss the casting of integral types. (see <a href="https://exercism.org/tracks/csharp/concepts/casting">casting</a>) provides a broader discussion of casting and type conversion. See that documentation for a discussion of conversion between integral types and floating-point numbers, <code>char</code> and <code>bool</code>.
+                    </p>
+                    <br />
+                    <h3>Casting Primitive Types - Implicit</h3>
+                    <p>
+                        C#'s type system is somewhat stricter than C's or Javascript's and as a consequence, casting operations are more restricted. <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions">Implicit casting</a> takes place between two numeric types as long as the "to" type can preserve the scale and sign of the "from" type's value.
+                    </p>
+                    <p>
+                        An implicit cast is not signified by any special syntax.
+                    </p>
+                    <br />
+                    <h3>Casting Primitive Types - Explicit</h3>
+                    <p>
+                        Where numeric types cannot be cast implicitly you can generally use the explicit cast <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression">operator</a>.
+                    </p>
+                    <p>
+                        Where the value being cast cannot be represented by the "to" type because it is insufficiently wide or there is a sign conflict then an overflow exception may be thrown.
+                    </p>
+                    <br />
+                    <h3>Casting Primitive Types - Examples</h3>
+                    <pre>
+                        <code class="language-dotnet">
+    int largeInt = Int32.MaxValue;
+    int largeNegInt = Int32.MinValue;
+    ushort shortUnsignedInt = ushort.MaxValue;
+    
+    // implicit cast
+    int from_ushort = shortUnsignedInt;          // 65535
+    float from_int = largeInt;                   // -21474836E+09
+    
+    // explicit cast
+    uint from_largeInt = (uint)largeInt;         // 2147483647
+    uint from_neg = (uint) largeNegInt;          // 2147483648 or OverflowException is thrown (if checked)                         
+                        </code>
+                    </pre>
+                </section>
+                <section name="Constructors" id="Constructors"class="main-section">
+                    <header>Constructors</header>
+                    <p>
+                        Creating an instance of a class is done by calling its constructor through the <code>new</code> operator. A constructor is a special type of method whose goal is to initialize a newly created instance. Constructors look like regular methods, but without a return type and with a name that matches the classes' name.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Library
+    {
+        private books;
+    
+        public Library()
+        {
+            this.books = 10;
+        }
+    }
+    
+    // This will call the constructor
+    var library = new Library();
+                        </code>
+                    </pre>
+                    <p>
+                        Like regular methods, constructors can have parameters. Constructor parameters are usually stored as (private) <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields">fields</a> to be accessed later, or else used in some one-off calculation. Arguments can be passed to constructors just like passing arguments to regular methods.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Building
+    {
+        private int numberOfStories;
+        private int totalHeight;
+    
+        public Building(int numberOfStories, double storyHeight)
+        {
+            this.numberOfStories = numberOfStories;
+            this.totalHeight = numberOfStories * storyHeight;
+        }
+    }
+    
+    // Call a constructor with two arguments
+    var largeBuilding = new Building(55, 6.2)
+                        </code>
+                    </pre>
+                    <p>
+                        Specifying a constructor is optional. If no constructor is specified, a parameterless constructor is generated by the compiler:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Elevator
+    {
+    }
+    
+    // This will call the (empty) generated constructor
+    var elevator = new Elevator();
+                        </code>
+                    </pre>
+                    <p>
+                        If fields have an initial value assigned to them, the compiler will output code in which the assignment is actually done inside the constructor. The following class declarations are thus equivalent (functionality-wise):
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class UsingFieldInitialization
+    {
+        private int players = 5;
+    }
+    
+    class UsingConstructorInitialization
+    {
+        private int players;
+    
+        public UsingConstructorInitialization()
+        {
+            players = 5;
+        }
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section name="Equality" id="Equality"class="main-section">
+                    <header>Equality</header>
+                    <p>
+                        The coding exercise illustrates a number of properties of equality in C#: 
+                    </p>
+                    <br />
+                    <h3><code>Object.Equals()</code></h3>
+                    <ul>
+                        <li>
+                            Simple types (strings and primitives) are typically tested for equality with the <code>==</code> and <code>!=</code>. This is considered more idiomatic than using the <code>Equals()</code> method which is also available with these types. Java programmers should be alert, when dealing with strings, to the fact that <code>==</code> compares by value in C# but by reference in Java when returning to their former language.
+                        </li>
+                        <li>
+                            Reference types (Instances of classes) are compared using the <code>Equals()</code> method inherited from <code>object</code>. If your goal with the equality test is to ensure that two objects are the exact same instance then relying on <code>object</code>'s implementation will suffice. If not, you need to override <code>object.Equals()</code>.
+                        </li>
+                        <li>
+                            If you know that all the instances of your class are created in one place, say characters in some game or simulation then reference equality is sufficient. However, it is likely that multiple instances of the same real-world entity will be created (for example, from a database, by user input, via a web request). In this case values that uniquely identify the entity must be tested for equality. Therefore <code>Equals()</code> must be overridden.
+                        </li>
+                        <li>
+                            An overridden <code>Equals()</code> will contain equality tests on members of simple types using <code>==</code> and reference types with recursive calls to <code>Equals()</code>.
+                        </li>
+                        <pre>
+                            <code class="language-dotnet">
+    class StatusBar
+    {
+        private readonly int width = 200, height = 20;
+    
+        public override bool Equals(object other)
+        {
+            // ... null and type checks and performance optimisations
+            return width == (other as StatusBar).width && height == (other as StatusBar).height;
+        }
+    }
+    class Window
+    {
+        private readonly string title = "Main";
+        private readonly StatusBar statusBar = new StatusBar();
+    
+        public override bool Equals(object other)
+        {
+            // ... null and type checks and performance optimisations
+            return title == (other as Window).title && statusBar.Equals((other as Window).statusBar);
+        }
+    }         
+                            </code>
+                        </pre>
+                        <li>
+                            The static method <code>object.ReferenceEquals()</code> is used to compare two objects to detect if they are one and the same instance. This provides clarity and is a necessity where <code>Equals()</code> and <code>==</code> have been overridden/overloaded.
+                        </li>
+                        <pre>
+                            <code class="language-dotnet">
+    var winA = new Window(); // above code shows that all windows are equal
+    var winB = new Window();
+    ReferenceEquals(winA, winB);
+    // => false
+    var winC = winA;
+    ReferenceEquals(winA, winC);
+    // => true
+                            </code>
+                        </pre>
+                    </ul>
+                    <h3>Ancillary Topics</h3>
+                    <ul>
+                        <li>
+                            In addition to <code>public override bool Equals(object obj)</code> IDEs typically generate the overload <code>protected bool Equals(FacialFeatures other)</code> for use when inheritance is involved. A derived class can call the base classe's <code>Equals()</code> and then add its own test.
+                        </li>
+                        <li>
+                            Do not use <code>==</code> unless you have overloaded the <code>==</code> operator, as well as the Equals() method in your class (see the <code>operator-overloading</code> exercise) or you care only that the references are equal.
+                        </li>
+                        <li>
+                            Equality tests in <code><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct">struct</a></code>s are dealt with in the <code>structs</code> exercise.
+                        </li>
+                        <li>
+                            Equality of <code><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-7.3/tuple-equality">tuples</a></code> is dealt with in the <code>tuples</code> exercise.
+                        </li>
+                        <li>
+                            Many developers rely on their IDEs to provide implementation of equality methods as these take care of all the minutiae of equality. For instance, JetBrains' RIDER (v 2020.1) generates the following equality methods for a class:
+                        </li>
+                        <pre>
+                            <code class="language-dotnet">
+    protected bool Equals(T other)
+    {
+        return field1 == other.field1 && field2.Equals(other.field2);
+    }
+    
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != this.GetType()) return false;
+        return Equals((T) obj);
+    }
+                            </code>
+                        </pre>
+                        <li>
+                            Be careful if you decide to improve on the code generated by your IDE. That code is generally bullet-proof against nulls and mistyped objects and fairly well optimized.
+                        </li>
+                        <li>
+                            Tests for the equality of delegates is not specifically discussed in the exercise.
+                        </li>
+                        <li>
+                            There are no built in equality tests for arrays nor most collections. <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/">LINQ</a> (discussed in later exercises) provides <code>SequenceEquals()</code> but in the absence of LINQ it is a matter of iterating through both collections and comparing items individually.
+                        </li>
+                        <li>
+                            For a discussion of how to use <code>==</code> and <code>!=</code> with your own classes see the <code>operator-overloading</code> exercise.
+                        </li>
+                    </ul>
+                    <br />
+                    <h3>Object.GetHashCode()</h3>
+                    <ul>
+                        <li>
+                            <code>object.GetHashCode()</code> returns a hash code in the form of a 32 bit integer. The hash code is used by dictionary and set classes such as <code>Dictionary&#60;T&#62;</code> and <code>HashSet&#60;T&#62;</code> to store and retrieve objects in a performant manner. In the case of dictionaries the hashing relates to the keys.
+                        </li>
+                        <li>
+                            There is an expectation amongst C# developers that if you override <code>Equals()</code> you will also override <code>GetHashCode()</code>. There is a relationship between <code>Equals()</code> and <code>GetHashCode() </code>that must hold true for correct behavior of dictionary and hash set classes and any others that use a hash code. You are expected to implement the method so that no traps are laid for maintainers who might add a hash code based collection at a later time.
+                        </li>
+                        <li>
+                            The relationship between hash code and equality is that if two objects are equal (<code>Equal()</code> returns true) then <code>GetHashCode()</code> for the two objects must return the same value. This does not apply in the reverse direction. It is not symmetrical. Picture a lookup function that first goes to a "bucket" based on the hash code and then picks out the particular item using the equality test.
+                        </li>
+                        <li>
+                            The easiest way to create a hashcode is to call <code>HashCode.Combine()</code> passing in the values used in the equality test (or a subset). Bear in mind the more information you provide to <code>Combine()</code> the more performant the hash implementation is likely to be.
+                        </li>
+                        <pre>
+                            <code class="language-dotnet">
+    public class Assessment
+    {
+        private int rating;
+        private Person boss;
+    
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(rating, boss);
+        }
+    }
+                            </code>
+                        </pre>
+                        <li>
+                            The values used in the equality test must be stable while the hashed collection is in use. If you add an object to the collection with one set of values and then change those values the hash code will no longer point to the correct "bucket". In practice this means that the object should be immutable. Other approaches run the risk of creating gotchas for maintainers. Immutability is discussed in other exercises.
+                        </li>
+                        <li>
+                            It is possible that you can design a better hashcode than that produced by the library routines but either it's because you have a detailed understanding of the data's characteristics or because it is a very simple collection where values can be used directly without hashing. It may not be worth the extra effort.
+                        </li>
+                    </ul>
+                    <br />
+                    <h3>Performance Enhancements</h3>
+                    <p>
+                        To improve performance slightly, especially where objects belong to collections you can add an overloaded member <code>public bool Equals(T other)</code>.
+                    </p>
+                    <p>
+                        This will save a certain amount of type checking for reference types and will save a boxing step for value types as they will not need to be converted to an object (boxed) as an argument to <code>public override bool Equals(object other)</code>.
+                    </p>
+                    <p>
+                        If you add the interface <code>IEquatable&#60;T&#62;</code> to your class this will require the overload to be implemented. Unless your code contains routines that take objects of type <code>IEquatable&#60;T&#62;</code> (and presumably do something interesting relating to equality irrespective of the implementing class) there is really no other compelling to include the interface.
+                    </p>
+                    <br />
+                    <h3><code>IEqualityComparer&#60;T&#62;</code></h3>
+                    <p>
+                        If you have a class that can be uniquely identified in two different ways, say a Person class that has a SSID and a unique email address then .NET provides a means to allow two different collections to use different hash-code and equality tests. Each can have an different implementation of <code>IEqualityComparer&#60;T&#62;</code> with its own an Equals() and a GetHashCode() method. You can have a dictionary keyed on SSID and another keyed on email address.
+                    </p>
+                    <p>
+                        Where <code>IEqualityComparer&#60;T&#62;</code> is in play you would typically still override Equals() and GetHashCode() on your item class to avoid problems outside the collection classes.
+                    </p>
+                    <p>
+                        One consideration when using <code>IEqualityComparer&#60;T&#62;</code> is that private methods etc. will not be available for the equality test.
+                    </p>
+                    <p>
+                        If only one hashed collection is in play then it may be better to avoid <code>IEqualityComparer&#60;T&#62;</code> and encapsulate equality and hash code in the object itself. It is not ideal, in the first place, that a key dependency such as that between object and hashed collection cannot be enforced by the compiler but with the hashing and comparison logic elsewhere it would be even easier for a maintainer to make changes to a class's members without regard to the consequences for the collection.
+                    </p>
+                    <h3>Note on floating-point equality</h3>
+                    <p>
+                        One primitive that can challenge the unwary coder is testing the equality of floating-point values. This is discussed in the about.md document for the floating-point-numbers concept.
+                    </p>
+                    <h3>Equality and Inheritance</h3>
+                    <p>
+                        This <a href="https://stackoverflow.com/questions/22154799/equals-method-inheritance-confusion">article</a> shows some of the decisions that have to be made with regard to equality and inheritance. They will only concern you if you are manipulating instances of a class and a derived class and need to test the equality between the two.
+                    </p>
+                    <div class="note">
+                        <p>
+                            See this to learn more about:
+                        </p>
+                        <ul>
+                            <li><a href="#Inheritance">Inheritance</a></li>
+                            <li><a href="#Float_Numbers">Float Numbers</a></li>
+                            <li><a href="#Interfaces">Interfaces</a></li>
+                            <li><a href="#LINQ">LINQ</a></li>
+                            <li><a href="#Method_Overloading">Method Overloading</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <section name="Fields" id="Fields"class="main-section">
+                    <header>Fields</header>
+                    <p>
+                        Fields have a type and can be defined anywhere in a class. Public fields are defined in PascalCase and private fields are defined in camelCase and prefixed with an underscore _:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Car
+    {
+        // Accessible by anyone
+        public int Weight;
+    
+        // Only accessible by code in this class
+        private string _color;
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        One can optionally assign an initial value to a field. If a field does not specify an initial value, it will be set to its type's default value. An instance's field values can be accessed and updated using dot-notation.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Car
+    {
+        // Will be set to specified value
+        public int Weight = 2500;
+    
+        // Will be set to default value (0)
+        public int Year;
+    }
+    
+    var newCar = new Car();
+    newCar.Weight; // => 2500
+    newCar.Year;   // => 0
+    
+    // Update value of the field
+    newCar.Year = 2018;
+                        </code>
+                    </pre>
+                    <p>
+                        Private fields are usually updated as a side-effect of calling a method. Such methods usually don't return any value, in which case the return type should be <code>void</code>:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class CarImporter
+    {
+        private int _carsImported;
+    
+        public void ImportCars(int numberOfCars)
+        {
+            // Update private field
+            _carsImported = _carsImported + numberOfCars;
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Note that is not customary to use public fields in C# classes. Either private fields are used or other types of members that will be discussed in subsequent exercises.
+                    </p>
+                </section>
+                <section name="Inheritance" id="Inheritance"class="main-section">
+                    <header>Inheritance</header>
+                    <p>
+                        In C#, a class hierarchy can be defined using inheritance, which allows a derived class (<code>Car</code>) to inherit the behavior and data of its parent class (<code>Vehicle</code>). If no parent is specified, the class inherits from the <code>object</code> class.
+                    </p>
+                    <p>
+                        Parent classes can provide functionality to derived classes in three ways:
+                    </p>
+                    <ul>
+                        <li>
+                            Define a regular method.
+                        </li>
+                        <li>
+                            Define a <code>virtual</code> method, which is like a regular method but one that derived classes can change.
+                        </li>
+                        <li>
+                            Define an <code>abstract</code> method, which is a method without an implementation that derived classes must implement. A class with <code>abstract</code> methods must be marked as <code>abstract</code> too. Abstract classes cannot be instantiated.
+                        </li>
+                    </ul>
+                    <p>
+                        The <code>protected</code> access modifier allows a parent class member to be accessed in a derived class, but blocks access from other classes. Derived classes thus can access <code>public</code> and <code>protected</code> parent class members, but not <code>private</code> parent class members.
+                    </p>
+                    <p>
+                        Derived classes can access parent class members through the <code>base</code> keyword.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    // Inherits from the 'object' class
+    abstract class Vehicle
+    {
+        // Can be overridden
+        public virtual void Drive()
+        {
+        }
+    
+        // Must be overridden
+        protected abstract int Speed();
+    }
+    
+    // Cannot be inherited from
+    sealed class Car : Vehicle
+    {
+        public override void Drive()
+        {
+            // Override virtual method
+    
+            // Call parent implementation
+            base.Drive();
+        }
+    
+        protected override int Speed()
+        {
+            // Implement abstract method
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        The constructor of a derived class will automatically call its parent's constructor before executing its own constructor's logic. Arguments can be passed to a parent class' constructor using the <code>base</code> keyword. As abstract classes cannot be instantiated, their constructors can be made <code>protected</code>.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    abstract class Vehicle
+    {
+        protected Vehicle(int wheels)
+        {
+            Console.WriteLine("Called first");
+        }
+    }
+    
+    class Car : Vehicle
+    {
+        public Car() : base(4)
+        {
+            Console.WriteLine("Called second");
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Where more than one class is derived from a base class the two (or more) sub-classes will often implement different versions of a base class method. This is a very important principle called <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism">polymorphism</a>. For instance in a variation on the above example we show how code using <code>Vehicle</code> can change its behavior depending on what type of vehicle has been instantiated.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+        abstract class Vehicle
+        {
+            public abstract string GetDescription();
+        }
+        
+        class Car : Vehicle
+        {
+            public Car()
+            {
+            }
+        
+            public override string GetDescription()
+            {
+                return "Runabout";
+            }
+        }
+        
+        class Rig : Vehicle
+        {
+            public Rig()
+            {
+            }
+        
+            public override string GetDescription()
+            {
+                return "Big Rig";
+            }
+        }
+        
+        Vehicle v1 = new Car();
+        Vehicle v2 = new Rig();
+        
+        v1.GetDescription();
+        // => Runabout
+        v2.GetDescription();
+        // => Big Rig
+                        </code>
+                    </pre>
+                    <p>
+                        To prevent a class being inherited, add the <code>sealed</code> modifier. Some practitioners try to avoid inheriting from concrete classes (as discussed in <a href="https://stackoverflow.com/questions/16724946/why-derive-from-a-concrete-class-is-a-poor-design">this SO question</a>) and the <code>sealed</code> modifier supports this approach. On the other hand many C# developers consider them a hindrance to maintenance as discussed in some of the comments on <a href="https://stackoverflow.com/questions/7777611/when-and-why-would-you-seal-a-class">this question</a>. The advice is to use the <code>sealed</code> modifier sparingly until you have gained confidence in their use for your requirements.
+                    </p>
+                    <p>
+                        The following <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords">article</a> describes <code>new</code> as an alternative to the <code>override</code> modifier. This is occasionally useful, perhaps with convoluted class hierarchies and/or some sort of clash of libraries.
+                    </p>
+                </section>
+                <section name="Interfaces" id="Interfaces"class="main-section">
+                    <header>Interfaces</header>
+                    <p>
+                        <code>interfaces</code> are the primary means of decoupling the uses of a class from its implementation. This decoupling provides flexibility for maintenance of the implementation and helps support type safe generic behavior.
+                    </p>
+                    <p>
+                        The syntax of an interface is similar to that of a class or struct except that methods and properties appear as the signature only and no body is provided.
+                    </p>
+                    <p>
+                        The implementing class or struct must implement all operations defined by the interface.
+                    </p>
+                    <p>
+                        Interfaces typically do one or more of the following:
+                    </p>
+                    <ul>
+                        <li>
+                            allow a number of different classes to be treated generically by the using code. In this case interfaces are playing the same role as a base class
+                        </li>
+                        <li>
+                            expose a subset of functionality for some specific purpose (such as IComparable&#60;T&#62;) or
+                        </li>
+                        <li>
+                            expose the public API of a class so that multiple implementations can co-exist. One example is that of a test double
+                        </li>
+                    </ul>
+                    <pre>
+                        <code class="language-dotnet">
+    public class ItalianTraveller : IItalianLanguage
+    {
+        public string Speak()
+        {
+            return "Ciao mondo";
+        }
+    
+        public string SpeakItalian()
+        {
+            return Speak();
+        }
+    }
+    
+    public class ItalianTravellerV2 : IItalianLanguage
+    {
+        public string Speak()
+        {
+            return "migliorata - Ciao mondo";
+        }
+    
+        public string SpeakItalian()
+        {
+            return Speak();
+        }
+    }
+    
+    public class FrenchTraveller : ILanguage
+    {
+        public string Speak()
+        {
+            return "Ça va?";
+        }
+    }
+    
+    public class RussianTraveller : ILanguage, IScriptConverter
+    {
+        public string Version { get; set; } = "1.0";
+    
+        public string Speak()
+        {
+            return "Привет мир";
+        }
+    
+        public string ConvertCyrillicToLatin(string cyrillic)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    
+    public class DocumentTranslator : IScriptConverter
+    {
+        public string Version { get; set; } = "1.0";
+    
+        public string Translate(string russian)
+        {
+            throw new NotImplementedException();
+        }
+    
+        public string ConvertCyrillicToLatin(string cyrillic)
+        {
+            throw new NotImplementedException();
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Code which uses the above interfaces and classes can:
+                    </p>
+                    <ul>
+                        <li>
+                            treat all speakers in the same way irrespective of language.
+                        </li>
+                        <li>
+                            allow some subsystem handling script conversion to operate without caring about what specific types it is dealing with.
+                        </li>
+                        <li>
+                            remain unaware of the changes to the italian speaker which is convenient if the class code and user code are maintained by different teams
+                        </li>
+                    </ul>
+                    <p>
+                        Interfaces are widely used to support testing as they allow for easy mocking.
+                    </p>
+                    <p>
+                        See this <a href="https://www.talkingdotnet.com/default-implementations-in-interfaces-in-c-sharp-8/">article</a> for details of what types of member can be included in an interface.
+                    </p>
+                    <p>
+                        Interfaces can inherit from other interfaces.
+                    </p>
+                    <p>
+                        Members of an interface are public by default.
+                    </p>
+                    <p>
+                        Interfaces can contain nested types, such as <code>const literals, enums, delegates, classes and structs</code>. Here, the interfaces act as <a href="https://en.wikipedia.org/wiki/Namespace">namespaces</a> in the same way that classes and structs do and the behavior and syntax is identical.
+                    </p>
+                    <p>
+                        By design, C# does not support multiple inheritance, but it facilitates a kind of multiple inheritance through interfaces.
+                    </p>
+                    <p>
+                        Moreover, the concept of polymorphism can be implemented through interfaces underpins the interface mechanism.
+                    </p>
+                    <br />
+                    <h3>Explicit interface implementation</h3>
+                    <p>
+                        Sometimes method names and signatures can be shared in two different interfaces. In order provide a distinct implementation of these methods, C# provides explicit implementation of interfaces. Note that to use a particular implementation of an interface you need to convert the expression containing referencing the object to that interface. Assignment, casting or passing as a parameter will achieve this.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    public interface IFoo
+    {
+        void X();
+    }
+    
+    public interface IBar
+    {
+        void X();
+    }
+    
+    public class Census : IFoo, IBar
+    {
+        void IFoo.X()
+        {
+            Console.Write("This is from Foo");
+        }
+    
+        void IBar.X()
+        {
+            Console.Write("This is from Bar");
+        }
+    }
+    
+    public class User
+    {
+        public void Use()
+        {
+            IFoo foo = new Census();
+            IBar bar = new Census();
+            foo.X();
+            // => "This is from Foo"
+            bar.X();
+            // => "This is from Bar"
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        There are a number of use cases:
+                    </p>
+                    <ul>
+                        <li>
+                            A clash of domains (as illustrated above) where methods have identical signatures.
+                        </li>
+                        <li>
+                            Methods with the same name but different return types: if you implement your own collection classes you may find that an explicit interface for the legacy <code>IEnumerable.GetEnumerator()</code>, alongside <code>IEnumerable&#60;T&#62;.GetEnuerator()</code>, is required. You may never make use of such the interface but the compiler may insist.
+                        </li>
+                        <li>
+                            Methods where there is no clash of names between interfaces but it is desirable that the implementing class uses the name for some related purpose: <code>IFormattable</code> has a <code>ToString()</code> method which takes a format type parameter as well as parameter of type <code>IFormatProvider</code>. A class like FormattableString from the Base Class Library (BCL) has the interface to ensure it can be used by routines that take an <code>IFormattable</code> but it is more expressive for its main version of <code></code>ToString(IFormatProvider)</code> to omit the format type parameter as it is not used in the implementation and would confuse API users.
+                        </li>
+                    </ul>
+                <br />
+                <h3>Default Implementation</h3>
+                <p>
+                    Version 8 of C# addresses a nagging problem with APIs. If you add methods to an interface to enhance functionality for new implementations then it is necessary to modify all the existing implementations of the interface so that they comply with the API-contract even though they have no implementation specific behavior. C# now allows for a default method to be provided as part of the interface (Java developers will be familiar). Previously, when such a change occurred a version 2 of the interface would exist alongside the original.
+                </p>
+                <p>
+                    This <a href="https://www.talkingdotnet.com/default-implementations-in-interfaces-in-c-sharp-8/">article</a> is an excellent primer on interfaces and focuses on default implementation and other supporting innovations such as <code>static, private and virtual</code> members.
+                </p>
+                <br />
+                <h3>Ordering</h3>
+                <p>
+                    To allow an object to be compared to another object, it must implement the IComparable&#60;T&#62; interface. This interface has a single method that needs to be implemented: <code>int CompareTo(T other)</code>.
+                </p>
+                <p>
+                    There are three possible return values for the <code>CompareTo</code> method:
+                </p>
+                <ul>
+                    <li>
+                        Value smaller than zero: the current object is smaller than the other object.
+                    </li>
+                    <li>
+                        Value greater than zero: the current object is greater than the other object.
+                    </li>
+                    <li>
+                        Value is zero: the current object is equal to the other object.
+                    </li>
+                </ul>
+                <pre>
+                    <code class="language-dotnet">
+    public class Book : IComparable<Book>
+    {
+        public int PageCount { get; set; }
+    
+        public int CompareTo(Book other)
+        {
+            // If other is not a valid object reference, this instance is greater.
+            if (other == null) return 1;
+    
+            // Compare books using their number of pages
+            return PageCount.CompareTo(other.PageCount);
+        }
+    }
+    
+    var smallBook = new Book { PageCount = 99 };
+    var largeBook = new Book { PageCount = 3333 };
+    
+    smallBook.CompareTo(largeBook);
+    // => -1
+                    </code>
+                </pre>
+                </section>
+                <section name="Properties" id="Properties"class="main-section">
+                    <header>Properties</header>
+                    <p>
+                        The two main types of property are
+                    </p>
+                    <ol>
+                        <li>
+                            auto-implemented properties where the <code>get</code> and <code>set</code> accessors have no body. They may or may not be explicitly initialized. For example:
+                        </li>
+                        <pre>
+                            <code class="language-dotnet">
+    public int MyProperty {get; set;} = 42;
+                            </code>
+                        </pre>
+                        <li>
+                            those where the accessors evaluate expressions and execute statements. The code can be as simple as returning or assigning a backing field. For example:
+                        </li>
+                        <pre>
+                            <code class="language-dotnet">
+    private int myField;
+    public int MyProperty
+    {
+        get { return myField; }
+        set { myField = value; }
+    }
+                            </code>
+                        </pre>
+                    </ol>
+                    <p>
+                        There is considerable overlap of behavior and power between properties and methods. When they are not auto-implemented properties can contain any statement or expression that can appear within the scope of the class. In a common case they are often described as wrapping a backing field. Although much of the time it is obvious whether to code behavior as a property or method in a particular case it is often a judgement call for the coder and in particular how much code should be executed within the accessors. Validation in a set accessor and simple calculation or formatting in a get accessor are commonly found:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    private float fraction;
+    public float Percentage
+    {
+        get { return fraction * 100; }
+        set
+        {
+        if (value < 0 || value > 100)
+        {
+            throw new ArgumentException("Percentage must be between 0 and 100");
+        }
+        fraction = value / 100;
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        In a similar way to other class members properties can have access levels. Most often properties will have a non-private access level in line with their essential purpose. Sometimes one of the accessors will have a different access level to the property. In the case of <code>TareWeight</code> under the rather artificial "security" constraint there was an opportunity to have a public property with a private getter. This means that code external to the class can set the value of the property but it can only be read (get) by code within the class.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    public int ConfidentialValueUsedInternally {private get; set; }
+                        </code>
+                    </pre>
+                    <p>
+                        Non-public set accessors are also supported but a more common case is where the set accessor may be omitted completely. This is maybe because the value of the property is set in the class's constructor.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class MyClass
+    {
+        public MyClass( int importantValue)
+        {
+        ConstructedValue = importantValue;
+        }
+        public int ConstructedValue {get;}
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section name="Resource_Cleanup" id="Resource_Cleanup"class="main-section">
+                    <header>ResourceCleanup</header>
+                    <p>
+                        The <code>IDisposable</code> interface is central to resource cleanup and has two significant roles in C#:
+                    </p>
+                    <ul>
+                        <li>
+                            It indicates to users of the implementing class that they are responsible for letting the class know (by calling the <code>Dispose()</code> method) that it is no longer required so that it can release any unmanaged resources or reset its internal state as appropriate. This contrasts with the normal approach to cleaning up of allowing the <a href="https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals">garbage collector</a> to clean everything up (principally, release memory).
+                        </li>
+                        <li>
+                            In conjunction with the compiler and runtime the <code>IDisposable</code> interface supports the <code>using</code> statement discussed in the <code>resource-lifetime</code> exercise.
+                        </li>
+                    </ul>
+                    <p>
+                        It is possible but unlikely that <code>Dispose()</code> will be called through the interface in some sort of generic cleanup routine.
+                    </p>
+                    <p>
+                        IDisposable is most commonly encountered with library classes that wrap operating system (unmanaged) resources such as <code>System.IO.Stream</code> and <code>System.IO.TextReader</code>. (<code>Stream</code>s and <code>TextReader</code>s are covered in other exercises).
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    public class TextHandler : IDispoable
+    {
+        private TextReader reader = new TextReader(...);
+    
+        public void Dispose()
+        {
+            reader.Dispose();
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        If a class you are using implements the <code>IDispoable</code> interface then you must ensure that <code>Dispose()</code> is called (by use of <code>catch and finally</code> clauses) when the instance is no longer required. If a class has a member which implements <code>IDisposable</code> then it may well need to implement IDisposable itself so that <code>Dispose()</code> can be called to dispose of the <code>IDisposble</code>-implementing member.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    public class Activity : IDisposable
+    {
+        private MyResource myResource;
+    
+        public Activity()
+        {
+            myResource = new MyResource();
+        }
+    
+        public void Perform()
+        {
+            try
+            {
+                myResource.BeUseful();
+            }
+            catch (Exception)
+            {
+                myResource.Dispose();
+            }
+        }
+    
+        public void Dispose()
+        {
+            myResource.Dispose();
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        The <code>IDisposable</code> interface may be useful even where no unmanaged resources are in the mix. Say you have a long-lived object which requires short-lived objects to register themselves with it and then unregister when they are no longer required. Implementing <code>IDisposable</code> on the short-lived object puts a developer using that class on notice that <code>Dispose()</code> needs to be called at the end of the short-lived object's life.
+                    </p>
+                    <br />
+                    <h3>Dispose Pattern</h3>
+                    <p>
+                        You will see references in the documentation to the <a href="https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose">dispose pattern</a>. The dispose pattern includes calling <code>Dispose()</code> from a class's finalizer and ensuring that disposal of resources in base classes is handled correctly. The dispose pattern is dealt with in a later exercise.
+                    </p>
+                    <p>
+                        The dispose pattern mostly relates to unmanaged resources. If you are using <a href="https://docs.microsoft.com/en-us/dotnet/standard/native-interop/">P/Inovke mechanism</a> and <code>extern</code> methods then you need to understand how and when to implement the dispose pattern. Most C# developers rarely have to deal directly with unmanaged resources in this way.
+                    </p>
+                    <div class="note">
+                        <p>
+                            See this learn more about <a href="#Interfaces">Interfaces</a> and <a href="#Exceptions">Exceptions</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>Methods</h2>
+                <section name="Exceptions" id="Exceptions"class="main-section">
+                    <header>Exceptions</header>
+                    <p>
+                        It is important to note that <code>exceptions</code> should be used in cases where something exceptional happens, an error that needs special handling. It should not be used for control-flow of a program, as that is considered bad design, which often leads to bad performance and maintainability.
+                    </p>
+                    <p>
+                        Some of the more common exceptions include <code>IndexOutOfRangeException, ArgumentOutOfRangeException, NullReferenceException, StackOverflowException, ArgumentException, InvalidOperationException and DivideByZeroException</code>.
+                    </p>
+                    <p>
+                        Some of the cases when exceptions should be thrown include:
+                    </p>
+                    <ul>
+                        <li>
+                            if the method cannot complete its defined functionality
+                        </li>
+                        <li>
+                            an inappropriate call to an object is made, based on the object state
+                        </li>
+                        <li>
+                            when an argument to a method causes an exception
+                        </li>
+                    </ul>
+                    <div class="note">
+                        <h4>Small Tip</h4>
+                        <p>
+                            Exceptions use the keyword <code>throw</code> to followed by <code>new</code> to create a new instance of exception. Exceptions are usually applied inside <a href="#Throw">try/catch/finally</a> scope to identify errors and prevent the application for malfunctioning
+                        </p>
+                    </div>
+                </section>
+                <section name="Expression_Bodied_Members" id="Expression_Bodied_Members"class="main-section">
+                    <header>Expression Bodied Members</header>
+                    <p>
+                        Many types of struct and class members (fields being the primary exception) can use the expression-bodied member syntax. Defining a member with an expression often produces more concise and readable code than traditional blocks/statements.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    public int Times3(int input) => input * 3;
+
+    public int Interesting => 1729;
+                        </code>
+                    </pre>
+                    <p>
+                        Expression-bodied-members cannot have blocks of multiple statements, but those with a functional background should be warned that anything that a traditional member can do can be achieved by one of these members. The "expression" can be an assignment operation creating side effects, or a method invocation meaning that anything is possible.
+                    </p>
+                </section>
+                <section name="Extension_Methods" id="Extension_Methods"class="main-section">
+                    <header>Extension Methods</header>
+                    <p>
+                        Extension methods allow adding methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type.
+                    </p>
+                    <p>
+                        Extension methods are static methods, but they're called as if they were instance methods on the extended type. It achieves this by using <code>this</code> before the type, indicating the instance we put the <code>.</code> on is passed as the first parameter. For client code, there's no apparent difference between calling an extension method and the methods defined in a type.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    namespace MyExtensions
+    {
+        public static int WordCount(this string str)
+        {
+            return str.Split().Length;
+        }
+    }
+    
+    "Hello World".WordCount();
+    // => 2
+                        </code>
+                    </pre>
+                    <p>
+                        Extension methods are brought into scope at the namespace level. This means that if you are in different namespace to the one the extension method is defined in, it's namespace must be in a <code>using</code> directive first; For example, if we wanted to use the above example in our code, we would first need a <code>using</code> <code>MyExtensions</code> directive. If you are in the same namespace as the one the extension method is defined in, you can use the extension methods without a <code>using</code> directive.
+                    </p>
+                    <p>
+                        A well-known example of extension methods are the <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/">LINQ</a> standard query operators that add query functionality to the existing IEnumerable types. To bring these into scope we need a <code>using System.Linq;</code> directives.
+                    </p>
+                </section>
+                <section name="Method_Overloading" id="Method_Overloading"class="main-section">
+                    <header>Method Overloading</header>
+                    <p>
+                        <i><a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/member-overloading">Method overloading</a></i> allows multiple methods in the same class to have the same name. Overloaded methods must be different from each other by either:
+                    </p>
+                    <ul>
+                        <li>
+                            The number of parameter
+                        </li>
+                        <li>
+                            The type of the parameters
+                        </li>
+                    </ul>
+                    <p>
+                        There is no method overloading based on the return type.
+                    </p>
+                    <p>
+                        The compiler will automatically infer which overloaded method to call based on the number of parameters and their type.
+                    </p>
+                </section>
+                <section name="Named_Arguments" id="Named_Arguments"class="main-section">
+                    <header>Named Arguments</header>
+                    <p>
+                        If a method has multiple optional parameters, you can specify only some of them using <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments">named arguments</a>.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Card
+    {
+        static string NewYear(int year = 2020, string sender = "me")
+        {
+            return $"Happy {year} from {sender}!";
+        }
+    }
+    
+    Card.NewYear();  // => "Happy 2020 from me!"
+    Card.Card(1999); // => "Happy 1999 from me!"
+    Card.Card(sender: "mom"); // => "Happy 2020 from mom!
+                        </code>
+                    </pre>
+                </section>
+                <section name="Optional_Parameters" id="Optional_Parameters"class="main-section">
+                    <header>Optional Parameters</header>
+                    <p>
+                        A method parameter can be made optional by assigning it a default value. When a parameter is optional, the caller is not required to supply an argument for that parameter, in which case the default value will be used. <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#optional-arguments">Optional parameters </a>must be at the end of the parameter list; they cannot be followed by non-optional parameters. If a method has multiple optional parameters, you can specify only some of them using <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments">named arguments</a>.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    class Card
+    {
+        static string NewYear(int year = 2020, string sender = "me")
+        {
+            return $"Happy {year} from {sender}!";
+        }
+    }
+    
+    Card.NewYear();     // => "Happy 2020 from me!"
+    Card.NewYear(1999); // => "Happy 1999 from me!"
+    Card.NewYear(sender: "mom"); // => "Happy 2020 from mom!"
+                        </code>
+                    </pre>
+                    <p>
+                        An optional parameter's value must be either:
+                    </p>
+                    <ul>
+                        <li>
+                            A constant expression (e.g. <code>"hi", 2, DayOfWeek.Friday, null</code> etc.)
+                        </li>
+                        <li>
+                            A <code>new</code> expression of a value type
+                        </li>
+                        <li>
+                            A <code>default</code> expression of a value type
+                        </li>
+                    </ul>
+                    <div class="note">
+                        <p>
+                            See this to learn more about <a href="#Named_Arguments">Named Arguments</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>Operators</h2>
+                <section name="Booleans" id="Booleans"class="main-section">
+                    <header>Booleans</header>
+                    <p>
+                        Booleans in C# are represented by the <code>bool</code> type, which values can be either <code>true</code> or <code>false</code>.
+                    </p>
+                    <p>
+                        C# supports four boolean operators: <code>!</code> (NOT), <code>&&</code> (AND), <code>||</code> (OR), and <code>^ </code>(XOR). The <code>&&</code> and <code>||</code> operators use short-circuit evaluation, which means that the right-hand side of the operator is only evaluated when needed.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    true || false // => true
+    true && false // => false
+    true ^ false  // => true
+    true ^ true   // => false
+                        </code>
+                    </pre>
+                    <p>
+                        The three boolean operators each have a different <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#operator-precedence">operator precedence</a>. As a consequence, they are evaluated in this order: <code>not</code> first, <code>&&</code> second, <code>^</code> third, and finally <code>||</code>. If you want to 'escape' these rules, you can enclose a boolean expression in parentheses (<code>()</code>), as the parentheses have an even higher operator precedence.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    !true && false   // => false
+    !(true && false) // => true
+                        </code>
+                    </pre>
+                </section>
+                <section name="Operator_Overloading" id="Operator_Overloading"class="main-section">
+                    <header>Operator Overloading</header>
+                    <p>
+                        The principal arithmetic and comparison operators can be adapted for use by your own classes and structs. This is known as operator overloading.
+                    </p>
+                    <p>
+                        This <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading">article</a> is a thorough discussion of the syntax as well as which operators can be overloaded and those that can't.
+                    </p>
+                    <p>
+                        Most operators have the form:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    static <return type> operator <operator symbols>(<parameters>);
+                        </code>
+                    </pre>
+                    <p>
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators">Cast operators</a> have the form:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    static (explicit|implicit) operator <cast-to-type>(<cast-from-type> <parameter name>); 
+                        </code>
+                    </pre>
+                    <p>
+                        Operators behave in the same way as static methods.
+                    </p>
+                    <ul>
+                        <li>
+                            An operator symbol takes the place of a method identifier, and they have parameters and a return type. The type rules for parameters and return type follow your intuition and you can rely on the compiler to provide detailed guidance.
+                        </li>
+                        <li>
+                            For binary operations the first parameter takes the left-hand argument to the operation.
+                        </li>
+                        <li>
+                            Operators have a signature comprising two parameters (in the case of binary operations) and a return type or a single parameter and return type in the case of unary operators.
+                        </li>
+                        <li>
+                            For binary operators, one of the parameter types must be that of the declaring class.
+                        </li>
+                        <li>
+                            In the case of type conversions either the parameter or the return type must be the type of the declaring class.
+                        </li>
+                        <li>   
+                            For incrementing and decrementing operators the parameter and return type must be that of the declaring class.
+                        </li>
+                    </ul>
+                    <p>
+                        Syntax examples:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    struct Point
+    {
+        decimal x;
+        decimal y;
+    
+        public static bool operator ==(Point pt, Point ptOther)
+        {
+            return pt.x == ptOther.x && pt.y == ptOther.y;
+        }
+    
+        public static bool operator !=(Point pt, Point ptOther)
+        {
+            return !(pt == ptOther);
+        }
+    
+        public static Point operator *(Point pt, decimal scale)
+        {
+            var ptNew = new Point();
+            ptNew.x = pt.x * scale;
+            ptNew.y = pt.y * scale;
+            return ptNew;
+        }
+    
+        public static implicit operator Point((decimal x, decimal y) xy)
+        {
+            var pt = new Point();
+            pt.x = xy.x;
+            pt.y = xy.y;
+            return pt;
+        }
+    
+        public static explicit operator (decimal x, decimal y)(Point pt)
+        {
+            return (pt.x, pt.y);
+        }
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        It is often productive to implement an <code>Equals()</code> method and call it from the <code>==</code> operator. Similarly, for comparisons you can implement the <code>IComparable</code> interface. In both cases you get to kill two birds with just over one stone.
+                    </p>
+                    <p>
+                        You should note that you cannot create operators from symbols that are not part of the standard set of operators. You can use only existing symbols for those operations where the documentation specifies that they can be overloaded. The operators that can be overloaded are listed <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading#overloadable-operators">here</a>.
+                    </p>
+                    <p>
+                        Note that the order of parameters is important where they differ in type. In the above example code <code>pt * 10m</code> is a legal expression whereas <code>10m * pt</code> will not compile.
+                    </p>
+                    <br />
+                    <h3>Reference</h3>
+                    <p>
+                        This documentation of <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading">operator overloading</a> details the syntax
+                    </p>
+                    <div class="note">
+                        <p>
+                            See this to learn more about:
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="#Equality">Equality</a>
+                            </li>
+                            <li>
+                                <a href="#Interfaces">Interfaces and IComparable</a>
+                            </li>
+                            <li>
+                                <a href="#Casting">Casting</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section name="Ternary_Operators" id="Ternary_Operators"class="main-section">
+                    <header>Ternary Operators</header>
+                    <p>
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator">Ternary operators</a> allow if-conditions to be defined in expressions rather than statement blocks. This echoes functional programming approaches and can often make code more expressive and less error-prone.
+                    </p>
+                    <p>
+                        The ternary operator combines 3 expressions: a condition followed by an expression to be evaluated and returned if the condition is true (the <code>if</code> part, introduced by <code>?</code>) and an expression to be evaluated and returned if the condition is false (the <code>else</code> part, introduced by <code>:</code>).
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    int a = 3, b = 4;
+    int max = a > b ? a : b;
+    // => 4
+                        </code>
+                    </pre>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>Structures</h2>
+                <section name="Array" id="Array"class="main-section">
+                    <header>Array</header>
+                    <p>
+                        Data structures that can hold zero or more elements are known as collections. An array is a collection that has a fixed size/length and whose elements must all be of the same type. Elements can be assigned to an array or retrieved from it using an index. C# arrays are zero-based, meaning that the first element's index is always zero:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    // Declare array with explicit size (size is 2)
+    int[] twoInts = new int[2];
+    
+    // Assign second element by index
+    twoInts[1] = 8;
+    
+    // Retrieve the second element by index
+    twoInts[1] == 8; // => true
+    
+    // Check the length of the array
+    twoInts.Length == 2; // => true
+                        </code>
+                    </pre>
+                    <p>
+                        Arrays can also be defined using a shortcut notation that allows you to both create the array and set its value. As the compiler can now tell how many elements the array will have, the length can be omitted:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    // Three equivalent ways to declare and initialize an array (size is 3)
+    int[] threeIntsV1 = new int[] { 4, 9, 7 };
+    int[] threeIntsV2 = new[] { 4, 9, 7 };
+    int[] threeIntsV3 = { 4, 9, 7 };
+                        </code>
+                    </pre>
+                    <p>
+                        Arrays can be manipulated by either calling an array instance's methods or properties, or by using the static methods defined in the <code>Array</code> class.
+                    </p>
+                    <br />
+                    <h3>Iteration</h3>
+                    <p>
+                        An array is also a collection, which means that you can iterate over all its values using a <code>foreach</code> loop: 
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
+
+    foreach (char vowel in vowels)
+    {
+        // Output the vowel
+        System.Console.Write(vowel);
+    }
+    
+    // => aeiou
+                        </code>
+                    </pre>
+                    <p>
+                        One could use a <code>for</code> loop to iterate over an array:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
+
+    for (int i = 0; i < vowels.Length; i++)
+    {
+        // Output the vowel
+        System.Console.Write(vowels[i]);
+    }
+    
+    // => aeiou
+                        </code>
+                    </pre>
+                    <p>
+                        However, generally a <code>foreach</code> loop is preferrable over a <code>for</code> loop for the following reasons:
+                    </p>
+                    <ul>
+                        <li>
+                            A <code>foreach</code> loop is guaranteed to iterate over all values. With a <code>for</code> loop, it is easy to miss elements, for example due to an off-by-one error.
+                        </li>
+                        <li>
+                            A <code>foreach</code> loop is more declarative, your code is communicating what you want it to do, instead of a <code>for</code> loop that communicates how you want to do it.
+                        </li>
+                        <li>
+                            A <code>foreach</code> loop is foolproof, whereas with <code>for</code> loops it is easy to have an off-by-one error.
+                        </li>
+                        <li>
+                            A <code>foreach</code> loop works on all collection types, including those that don't support using an indexer to access elements.
+                        </li>
+                    </ul>
+                    <p>
+                        To guarantee that a <code>foreach</code> loop will iterate over all values, the compiler will not allow updating of a collection within a <code>foreach</code> loop:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
+
+    foreach (char vowel in vowels)
+    {
+        // This would result in a compiler error
+        // vowel = 'Y';
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        A <code>for</code> loop does have some advantages over a <code>foreach</code> loop:
+                    </p>
+                    <ul>
+                        <li>
+                            You can start or stop at the index you want.
+                        </li>
+                        <li>
+                            You can use any (boolean) termination condition you want.
+                        </li>
+                        <li>
+                            You can skip elements by customizing the incrementing of the loop variable.
+                        </li>
+                        <li>
+                            You can process collections from back to front by counting down.
+                        </li>
+                        <li>
+                            You can use <code>for</code> loops in scenarios that don't involve collections.
+                        </li>
+                    </ul>
+                    <h3>Related Topics</h3>
+                    <ul>
+                        <li>
+                            You should be aware that C# supports <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/multidimensional-arrays">multi-dimensional arrays</a> like <code>int[,] arr = new int[10, 5]</code> which can be very useful.
+                        </li>
+                        <li>
+                            You should also be aware that you can instantiate objects of type <code>System.Array</code> with <code>Array.CreateInstance</code>. Such objects are of little use - mainly for interop with VB.NET code. They are not interchangeable with standard arrays (<code>T[]</code>). They can have a non-zero lower bound.
+                        </li>
+                    </ul>
+                </section>
+                <section name="Dictionaries_(T,T)" id="Dictionaries_(T,T)"class="main-section">
+                    <header>Dictionaries (T,T)</header>
+                    <p>
+                        Dictionaries, like their equivalents in other languages such as maps or associative arrays, store key/value pairs such that a value can be retrieved or changed directly by passing the key to the dictionary's indexer property.
+                    </p>
+                    <p>
+                        In addition key/value pairs can be added and removed from the dictionary. Keys, values and key/value pairs can be enumerated.
+                    </p>
+                    <p>
+                        Values can be objects of any C# type, which includes primitives, structs and classes.
+                    </p>
+                    <p>
+                        The Dictionary object allows keys to be objects of any type. However to ensure correct behavior at runtime keys must have an appropriate hashcode as returned by <code>GetHashCode</code>.
+                    </p>
+                    <p>
+                        A dictionary instance cannot be safely accessed by more than one thread (not thread-safe). <a href="https://docs.microsoft.com/en-gb/dotnet/api/system.collections.concurrent.concurrentdictionary-2">ConcurrentDictionary</a> is available for multi-threading situations.
+                    </p>
+                    <p>
+                        See also <a href="https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.hashset-1">HashSet</a>, <a href="https://docs.microsoft.com/en-gb/dotnet/api/system.collections.concurrent.concurrentdictionary-2">ConcurrentDictionary</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sorteddictionary-2">SortedDictionary</a>.
+                    </p>
+                    <p>
+                        Whilst there is no non-generic version of Dictionary a number of classes remain in the library to support a non-generic map. You need to be aware of the non-generic IDictionary and Hashtable mainly so that you know them when you see them. It is unlikely you would have to use them other than in maintaining an old code base.
+                    </p>
+                    <p>
+                        You will often want to expose and access the dictionary by its <code>IDictionary&#60;TKey, TValue&#62;</code> interface.
+                    </p>
+                    <p>
+                        Note that because of the nature of indexer properties primitive values can be modified in place, such as:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    nums["some-number"] = 3;
+    nums["some-number"]++;
+    // nums["some-number"] == 4
+                        </code>
+                    </pre>
+                </section>
+                <section name="Enums" id="Enums"class="main-section">
+                    <header>Enums</header>
+                    <p>
+                        You can use <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum">Enumeration types</a> whenever you have a fixed set of constant values. Using an <code>enum</code> gives one a type-safe way of interacting with constant values. Defining an <code>enum</code> is done through the <code>enum</code> keyword. An enum member is referred to by prepending it with the enum name and a dot (e.g. <code>Status.Active</code>).
+                    </p>
+                    <p>
+                        Each enum member is an association of a name and an <code>int</code> value. If the first member does not have an explicit value, its value is set to <code>0</code>. If no value is explicitly defined for an enum member, its value is automatically assigned to the previous member's value plus <code>1</code>.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    enum Season
+    {
+        Spring,     // Auto set 0
+        Summer = 2, // Set the value 2
+        Autumn,     // Auto set 3
+        Winter = 7  // Set the value 7
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Enums are very declarative. Compare the following two method calls:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    Users.WithStatus(1)
+    Users.WithStatus(Status.Active)
+                        </code>
+                    </pre>
+                    <p>
+                        For someone reading the code, the second version (with enum) will be easier to comprehend.
+                    </p>
+                    <br />
+                    <h3>Numeric Type Enums</h3>
+                    <p>
+                        While the default numeric type of the values is int, it can be changed by explicitly specifying any other <a href="#Integral_Numbers">integral numeric</a> type.
+                    </p>
+                    <p>
+                        The following enum use the <code>byte</code> numeric type for its values:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    enum Priority : byte
+    {
+        Low = 0,
+        Medium = 127,
+        High = 255
+    }
+                        </code>
+                    </pre>
+                    <br />
+                    <h3>Convert to an Enum member</h3>
+                    <p>
+                        You should always consider using an enum whenever you want to model something like a boolean. Besides the aforementioned readability benefits, enums have another advantage over booleans: new values can always be added to an enum, whereas a boolean value will only ever be <code>true</code> or <code>false</code>. Using an enum is thus more future proof.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    enum Status
+    {
+        Inactive = 0,
+        Active = 1
+    }
+
+    Status active = (Status) 1;
+    active == Status.Active; // True
+                        </code>
+                    </pre>
+                    <p>
+                        Note that while one can cast integer values to an enum, doing so can lead to unexpected results when the integer value doesn't map to some enum value:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    Status status = (Status) 2;
+    status == Status.Inactive; // False
+    status == Status.Active;   // False
+                        </code>
+                    </pre>
+                    <br />
+                    <h3>Parsing an enum</h3>
+                    <p>
+                        It's sometimes useful to convert a string to an enum member based on its name with <code>Enum.Parse</code>:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    var input = "Inactive";
+    Status status = (Status)Enum.Parse(typeof(Status), input);
+    // Inactive
+                        </code>
+                    </pre>
+                    <p>
+                        To check if a name or a value exists in the enum, you can use <code>Enum.TryParse</code> or <code>Enum.IsDefined</code>, both return a boolean indicating if the enum member exists:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    bool doesExist = Enum.IsDefined(typeof(Status), "Inexistent");
+    // False
+                        </code>
+                    </pre>
+                    <p>
+                        More examples and best practices are available <a href="https://docs.microsoft.com/en-us/dotnet/api/system.enum">here</a>.
+                    </p>
+                </section>
+                <section name="Flag_Enums" id="Flag_Enums"class="main-section">
+                    <header>Flag Enums</header>
+                    <p>
+                        To allow a single enum instance to represent multiple values (usually referred to as flags), one can annotate the enum with the <code>[Flags]</code> attribute. By carefully assigning the values of the enum members such that specific bits are set to <code>1</code>, bitwise operators can be used to set or unset flags.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    [Flags]
+    enum PhoneFeatures
+    {
+        Call = 1,
+        Text = 2
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Besides using regular integers to set the flag enum members' values, one can also use binary literals or the bitwise shift operator.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    [Flags]
+    enum PhoneFeaturesBinary
+    {
+        Call = 0b00000001,
+        Text = 0b00000010
+    }
+    
+    [Flags]
+    enum PhoneFeaturesBitwiseShift
+    {
+        Call = 1 << 0,
+        Text = 1 << 1
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        An enum member's value can refer to other enum members values:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    [Flags]
+    enum PhoneFeatures
+    {
+        Call = 0b00000001,
+        Text = 0b00000010,
+        All  = Call | Text
+    }
+                        </code>
+                    </pre>
+                    <p>
+                        Setting a flag can be done through the bitwise OR operator (<code>|</code>) and unsetting a flag through a combination of the bitwise AND operator (<code>&</code>) and the bitwise complement operator (<code>~</code>). While checking for a flag can be done through the bitwise AND operator, one can also use the enum's <code>HasFlag()</code> method.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    var features = PhoneFeatures.Call;
+
+    // Set the Text flag
+    features = features | PhoneFeatures.Text;
+    
+    features.HasFlag(PhoneFeatures.Call); // => true
+    features.HasFlag(PhoneFeatures.Text); // => true
+    
+    // Unset the Call flag
+    features = features & ~PhoneFeatures.Call;
+    
+    features.HasFlag(PhoneFeatures.Call); // => false
+    features.HasFlag(PhoneFeatures.Text); // => true
+                        </code>
+                    </pre>
+                    <p>
+                        The <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/enumeration-types#enumeration-types-as-bit-flags">working with enums as bit flags tutorial</a> goes into more detail how to work with flag enums. Another great resource is the [enum flags and bitwise operators page][alanzucconi.com-enum-flags-and-bitwise-operators].
+                    </p>
+                    <p>
+                        By default, the <code>int</code> type is used for enum member values. One can use a different integer type by specifying the type in the enum declaration:
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    [Flags]
+    enum PhoneFeatures : byte
+    {
+        Call = 0b00000001,
+        Text = 0b00000010
+    }
+                        </code>
+                    </pre>
+                </section>
+                <section name="HashSets_(T)" id="HashSets_(T)"class="main-section">
+                    <header>HashSets (T)</header>
+                    <p>
+                        A set is a collection of unique values. The default .NET implementation of a set is the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1"><code>HashSet&#60;T&#62;</code></a>
+                    </p>
+                    <p>
+                        The <code>HashSet</code> class uses each element's <a href="https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode"><code>GetHashCode()</code></a> method
+                    </p>
+                    <p>
+                        By default, the <code>GetHashCode()</code> implementation for reference types returns a hash of its memory location. This means that different reference type objects will have a different hash code (this is known as reference equality). Value types by default return a hash of their fields/properties. This means that different value type objects with the same field/property values will have the same hash code (this is known as structural equality).
+                    </p>
+                    <p>
+                        You can override the <code>GetHashCode()</code> implementation on your own classes, which you could use to have a reference type have structural equality.
+                    </p>
+                </section>
+                <section name="Lists_(T)" id="Lists_(T)"class="main-section">
+                    <header>Lists (T)</header>
+                    <p>
+                        Lists are an example of <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/">generic classes</a>. You will also see <code>HashSet&#60;T&#62;</code> and <code>Dictionary&#60;T&#62;</code> in early exercises.
+                    </p>
+                    <p>
+                        If you need a list of different types then you can use <code>List&#60;Object&#62;</code> but you will need to down cast elements that you access in from the list.
+                    </p>
+                    <p>
+                        You should also be aware of <code>System.Collections.List</code> which you may encounter in legacy code. To all intents and purposes this behaves like <code>List&#60;Object&#62;</code>.
+                    </p>
+                    <p>
+                        Lists in C# are collections of primitive values or instances of structs or classes. They are implemented in the base class library as <code>List&#60;T&#62;</code> where T is the type of the item in the list. The API exposes a rich set of methods for creating and manipulating lists.
+                    </p>
+                    <pre>
+                        <code class="language-dotnet">
+    var listOfStrings = new List<string>();
+        var listOfIntegers = new List<int>();
+        var listOfRandoms = new List<Random>();
+        var listOfBigIntegers = new List<BigInteger>();
+                        </code>
+                    </pre>
+                    <p>
+                        A collection definition typically includes a place holder in angle brackets, often <code>T</code> by convention. This allows the collection user to specify what type of items to store in the collection.
+                    </p>
+                    <p>
+                        Unlike <a href="https://exercism.org/tracks/csharp/concepts/arrays">arrays</a>, lists can resize themselves dynamically.
+                    </p>
+                    <div class="note">
+                        <p>
+                            See this to learn more about <a href="#LINQ">LINQ</a>
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>System Instances</h2>
+                <section name="System.DateTime" id="System.DateTime"class="main-section">
+                    <header>System.DateTime</header>
+                    <p>
+                        A <code>DateTime</code> in C# is an immutable object that contains both date and time information. The date and time information can be accessed through its built-in properties.
+                    </p>
+                    <p>
+                        Manipulating a <code>DateTime</code> can be done by calling one of its methods. As <code>DateTime</code> values can never change after having been defined, all methods that appear to modify a <code>DateTime</code> will actually return a new <code>DateTime</code>.
+                    </p>
+                    <p>
+                        Comparing <code>DateTime</code> instances can be done using the default comparison operators (<code>&#60;, &#62;</code>, etc.). The current date (and time) can be retrieved through the <code>DateTime.Now</code> property.
+                    </p>
+                    <p>
+                        An important aspect of dates in C# is that they are culture-dependent. As such, any <code>DateTime</code> method that deals with strings will be dependent on the current culture. This includes the <code>DateTime.Parse()</code> method that parses a string to a <code>DateTime</code>, as well as the <code>DateTime</code> class' <code>ToString()</code> method that converts a <code>DateTime</code> to a string.
+                    </p>
+                </section>
+                <section name="System.Random" id="System.Random"class="main-section">
+                    <header>System.Random</header>
+                    <p>
+                        In C# applications randomness is generally implemented using the <code>System.Random</code> class.
+                    </p>
+                    <p>
+                        This <a href="https://docs.microsoft.com/en-us/dotnet/api/system.random">article</a> is an excellent introduction to the subject.
+                    </p>
+                    <p>
+                        When becoming familiar with a library class it is always worth studying the documentation for properties and methods and their overloads.
+                    </p>
+                    <p>
+                        The coding exercise highlighted a number of issues:
+                    </p>
+                    <ul>
+                        <li>
+                            The random number generator does not require a <a href="https://docs.microsoft.com/en-us/dotnet/api/system.random">seed</a>.
+                        </li>
+                        <li>
+                            <code>Random.Next()</code> can generate a range of integers
+                        </li>
+                        <li>
+                            <code>Random.Double()</code> can generate a double between 0 and 1
+                        </li>
+                        <li>
+                            The upper bounds in <code>Next()</code>, <code>Double()</code> and <code>Sample()</code> are exclusive so that <code>Random.Next(1,19)</code> will yield values from 1 to 18 but not 19.
+                        </li>
+                        <li>
+                            Once you have your random number you can do what you like with it
+                        </li>
+                    </ul>
+                    <p>
+                        There are 3 patterns for implementing the last point:
+                    </p>
+                    <ul>
+                        <li>
+                            You can get the random number and manipulate it. In the case of the coding exercise this would consist of calling <code>Random.NextDouble()</code> and multiplying by 100. This <a href="https://docs.microsoft.com/en-us/dotnet/api/system.random">piece</a> discusses making random selections from an array.
+                        </li>
+                        <li>
+                            You can inherit from System.Random and override the <code>Sample()</code> method.
+                        </li>
+                        <li>
+                            You can encapsulate an instance of <code>System.Random</code> as a member of a class of your own, for example to <a href="https://docs.microsoft.com/en-us/dotnet/api/system.random">generate booleans</a>.
+                        </li>
+                    </ul>
+                    <p>
+                        The numbers generated by <code>Random</code> are not guaranteed to be unique.
+                    </p>
+                    <p>
+                        It is recommended that you instantiate <code>System.Random</code> as a static member. But, note that it is not thread safe.
+                    </p>
+                    <p>
+                        You may see documentation discouraging the use of seedless constructors. This mostly applies to .NET Framework rather than .NET Core (which is what Exercism uses). For the full story read <a href="https://docs.microsoft.com/en-us/dotnet/api/system.random">this</a>.
+                    </p>
+                    <p>
+                        You are advised not to use <code>System.Random</code> for crypto or security. See this <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rngcryptoserviceprovider">provider</a> and this number <a href="https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator">generator</a>.
+                    </p>
+                    <br />
+                    <h3>Thread Safety</h3>
+                    <p>
+                        When applied in the context of library APIs "not thread safe" is simply shorthand for saying that, if you are likely to access instances of the class through multiple concurrent <a href="https://docs.microsoft.com/en-us/dotnet/standard/threading/using-threads-and-threading">threads</a>, you should provide your own thread synchronization mechanisms or, in the case of collections, look at the possibility of using a concurrent version of the class. In the absence of these precautions, <a href="https://stackoverflow.com/questions/34510/what-is-a-race-condition">race conditions</a> are likely to occur. If your code base does not use multiple threads, and is not likely to, then this warning is of little concern.
+                    </p>
+                </section>
+                <section name="System.StringBuilder" id="System.StringBuilder"class="main-section">
+                    <header>System.StringBuilder</header>
+                    <p>
+                        Using <code>StringBuilder</code> is seen as hugely preferable to building up strings with multiple repeated concatenations with a <code>+</code> or <code>+=</code> operator. Obviously simple one off concatenations are preferable to instantiating a <code>StringBuilder</code> for clarity as well as performance. <a href="https://jonskeet.uk/csharp/stringbuilder.html">This</a> is what <a href="https://stackoverflow.com/users/22656/jon-skeet">Jon Skeet</a> has to say about performance.
+                    </p>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>LINQ</h2>
+                <section name="LINQ" id="LINQ"class="main-section">
+                    <p>
+                        Although the built-in API of <code>List&#60;T&#62;</code> is rich (including mappings and filters such as <code>ConvertAll</code>, <code>FindAll</code> and <code>Foreach</code>) and its looping syntax is very clear, and you definitely need to be familiar with this API, Language Integrated Query (<a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/">LINQ</a>) is available for many tasks, is even more powerful and widely used and has the advantage of providing a consistent interface across library collections, third-party collections and your own classes.
+                    </p>
+                </section>
+            </div>
+
+            <span class="line-h"></span>
+
+            <div class="main-content">
+                <h2>References</h2>
+                <section name="References" id="References"class="main-section">
+                    <p>
+                        The content provided in this brief documentation on C# is sourced primarily from these reputable platforms: 
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://exercism.org/">Exercism.org</a>
+                        </li>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">Microsoft's Official C# Documentation</a>
+                        </li>
+                    </ul>
+                    <p>
+                        <i>* All information presented here is compiled from these sources for reference purposes and does not represent original content creation. The intention is to offer consolidated information from credible sources for informational purposes.</i>
+                    </p>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+<!-- External CDNs -->
+<script src="https://prismjs.com/components/prism-core.min.js"></script>
+<script src="https://prismjs.com/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-clike.min.js" integrity="sha512-QnaSDSqBZBMQgJc0jWB2AAWz+Vd4negxRunKXNzB5zm9vUb0AkDEP2jTFer9GjoIGeKMtRhwroj2AQ8+6+wTHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+</html>

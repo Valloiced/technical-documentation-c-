@@ -1,0 +1,15 @@
+{
+  "name": "csharp-technical-brief-documentation",
+  "description": "An extended FCC Personal Project to provide a brief overview and documentation about the C# language.",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "csharp",
+    "documentation"
+  ],
+  "author": "Alloice",
+  "license": "MIT"
+}
